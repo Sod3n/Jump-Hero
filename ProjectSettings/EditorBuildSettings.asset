@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Jump Hero/Scenes/SampleScene.unity
+    path: Assets/Jump Hero/Scenes/MenusScene.unity
+    guid: 45d038cd973e0f04b85ed3631cf71147
+  - enabled: 1
+    path: Assets/Jump Hero/Scenes/BootScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Jump Hero/Scenes/GameLevelScene.unity
+    guid: 9bcded5b664e861479ce0df318f31d0d
   m_configObjects: {}
