@@ -1,5 +1,26 @@
 {
   "dependencies": {
+    "com.codewriter.morpeh.events": {
+      "version": "https://github.com/codewriter-packages/Morpeh.Events.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "2715a0fe2b0ff6ebfeed81adeeb3c74f17993263"
+    },
+    "com.farco.morpeh.helpers": {
+      "version": "https://github.com/SH42913/morpeh.helpers.git?path=/Assets/Morpeh.Helpers",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "f5a9aacb24fe4c69a43c240970a7777ce3b620f1"
+    },
+    "com.scellecs.morpeh": {
+      "version": "https://github.com/scellecs/morpeh.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "184573e077a73a290541d2f9ad1a1c3180b2f913"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.11",
       "depth": 1,
