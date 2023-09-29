@@ -1,6 +1,7 @@
 using Scellecs.Morpeh;
 using UnityEngine;
 using Unity.IL2CPP.CompilerServices;
+using Scellecs.Morpeh.Providers;
 
 [System.Serializable]
 #if ENABLE_IL2CPP

@@ -1,8 +1,10 @@
 {
-    "name": "DeathFeatureAssDef",
+    "name": "MovementAssembly",
     "rootNamespace": "",
     "references": [
-        "Scellecs.Morpeh"
+        "GUID:3377deebfb0acde45876d12c6e3d27cc",
+        "GUID:6a3c981ed3de6574d85790358427c27e",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

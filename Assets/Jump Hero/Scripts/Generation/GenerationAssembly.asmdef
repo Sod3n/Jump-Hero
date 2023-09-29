@@ -1,0 +1,18 @@
+{
+    "name": "GenerationAssembly",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3377deebfb0acde45876d12c6e3d27cc",
+        "GUID:6a3c981ed3de6574d85790358427c27e",
+        "GUID:76cc33878101a7c40a735ee912cd3fa5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
