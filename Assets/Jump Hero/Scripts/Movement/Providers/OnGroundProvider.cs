@@ -1,14 +1,11 @@
-using Scellecs.Morpeh;
-using UnityEngine;
+﻿using Scellecs.Morpeh.Providers;
 
-[System.Serializable]
 #if ENABLE_IL2CPP
 using Unity.IL2CPP.CompilerServices;
 [Il2CppSetOption(Option.NullChecks, false)]
 [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
 [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-public struct TranformBridge : IComponent 
+public sealed class OnGroundProvider : MonoProvider<OnGround>
 {
-    public Transform transform;
 }

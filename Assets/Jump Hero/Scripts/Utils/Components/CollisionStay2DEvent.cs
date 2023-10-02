@@ -8,7 +8,8 @@ using Unity.IL2CPP.CompilerServices;
 [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
 [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-public struct ForceTarget : IComponent
+public struct CollisionStay2DEvent : IEventData
 {
-    public Entity value;
+    public Collision2D collision;
+    public Collision2D target;
 }

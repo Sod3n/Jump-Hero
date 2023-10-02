@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99c77924c65ca1743b5bf391b76817a7, type: 3}
-  m_Name: Synchronize Transform And Position 2D System
+  m_Script: {fileID: 11500000, guid: a97b82b379079514dbb7b3127d5dd702, type: 3}
+  m_Name: Apply Lerp Follow System
   m_EditorClassIdentifier: 

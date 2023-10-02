@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "2715a0fe2b0ff6ebfeed81adeeb3c74f17993263"
+      "hash": "85f39901a51423e9ecf2de7326f2db17fef20046"
     },
     "com.codewriter.triinspector": {
       "version": "https://github.com/codewriter-packages/Tri-Inspector.git",

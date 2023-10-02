@@ -6,5 +6,5 @@ using Unity.IL2CPP.CompilerServices;
 [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
 [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-public sealed class TransformBridgeProvider : MonoProvider<TranformBridge> {
+public sealed class TransformBridgeProvider : MonoProvider<TransformBridge> {
 }

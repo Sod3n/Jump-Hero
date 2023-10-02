@@ -48,6 +48,39 @@
                     "action": "Tapping",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "Tap",
+                    "id": "2cc32b9d-47f5-46fd-84bf-dffdfdfae5ad",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tapping",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "78ccea4a-4c31-4cb5-a81c-4308bd050cd9",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tapping",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "0898027d-dda2-4612-a380-4716d242ce48",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tapping",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

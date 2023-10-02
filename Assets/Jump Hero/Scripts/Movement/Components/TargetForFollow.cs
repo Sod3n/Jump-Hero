@@ -8,7 +8,7 @@ using Unity.IL2CPP.CompilerServices;
 [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
 [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-public struct ForceTarget : IComponent
+public struct TargetForFollow : IComponent
 {
-    public Entity value;
+    public Entity target;
 }
