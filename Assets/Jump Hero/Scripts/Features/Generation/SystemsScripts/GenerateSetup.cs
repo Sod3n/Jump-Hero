@@ -31,6 +31,7 @@ public sealed class GenerateSetup : UpdateSystem
         _setupPrefabs = this.World.Filter
                             .With<SetupPrefabs>()
                             .Build();
+
         foreach(var marker in _generateSetupMarkers)
         {
             ref var stPr = ref _setupPrefabs.First().GetComponent<SetupPrefabs>();
