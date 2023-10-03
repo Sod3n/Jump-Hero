@@ -1,5 +1,33 @@
 {
   "dependencies": {
+    "com.aleverdes.leoecslite-zoo": {
+      "version": "https://github.com/aleverdes/leoecslite-zoo.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "04dc730bd1bf6f1a7da0a203164c148a1692c41f"
+    },
+    "com.leopotam.ecslite": {
+      "version": "https://github.com/Leopotam/ecslite.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "8e714f2caf4450757637f1d31001d0961f66288d"
+    },
+    "com.leopotam.ecslite.extendedsystems": {
+      "version": "https://github.com/Leopotam/ecslite-extendedsystems.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "007a5af4aaa1c4993523232f306a5f02e1de7c0f"
+    },
+    "com.supremestranger.leoecs-lite-physics": {
+      "version": "https://github.com/supremestranger/leoecs-lite-physics.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "4e7a935370c9455ec5d9eb9bed2e8580c4735615"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.11",
       "depth": 1,

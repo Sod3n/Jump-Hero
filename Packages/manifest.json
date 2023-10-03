@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "com.aleverdes.leoecslite-zoo": "https://github.com/aleverdes/leoecslite-zoo.git",
+    "com.leopotam.ecslite": "https://github.com/Leopotam/ecslite.git",
+    "com.leopotam.ecslite.extendedsystems": "https://github.com/Leopotam/ecslite-extendedsystems.git",
+    "com.supremestranger.leoecs-lite-physics": "https://github.com/supremestranger/leoecs-lite-physics.git",
     "com.unity.collab-proxy": "2.0.7",
     "com.unity.feature.2d": "2.0.0",
     "com.unity.ide.rider": "3.0.24",
