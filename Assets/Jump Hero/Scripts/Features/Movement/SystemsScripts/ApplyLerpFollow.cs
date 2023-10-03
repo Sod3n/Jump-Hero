@@ -17,6 +17,5 @@ public sealed class ApplyLerpFollow : SimpleFixedUpdateSystem<TargetForFollow, P
        
         ref Position2D targetPos = ref targetForFollow.target.GetComponent<Position2D>();
         position2D.value = Vector2.Lerp(position2D.value, targetPos.value, deltaTime);
-        Debug.Log(targetPos.value);
     }
 }

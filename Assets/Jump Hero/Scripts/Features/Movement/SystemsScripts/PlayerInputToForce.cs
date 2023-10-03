@@ -31,7 +31,7 @@ public sealed class PlayerInputToForce : SimpleUpdateSystem<PlayerActions, Force
         switch (tapPosition.x)
         {
             case float x when (x > 0 && x <= 160):
-                dir = Vector2.left + Vector2.up * 3;
+                dir = Vector2.left + Vector2.up * 5;
                 dir.Normalize();
                 return dir;
 
@@ -40,7 +40,7 @@ public sealed class PlayerInputToForce : SimpleUpdateSystem<PlayerActions, Force
                 return dir;
 
             case float x when (x > 320 && x <= 480):
-                dir = Vector2.right + Vector2.up * 3;
+                dir = Vector2.right + Vector2.up * 5;
                 dir.Normalize();
                 return dir;
 
