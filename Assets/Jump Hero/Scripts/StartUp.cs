@@ -1,8 +1,7 @@
 using Leopotam.EcsLite;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using AleVerDes.LeoEcsLiteZoo;
+using System.Collections.Generic;
 
 public class StartUp : MonoBehaviour
 {
@@ -18,17 +17,11 @@ public class StartUp : MonoBehaviour
 
         _ecsManager = new EcsManager();
         _ecsManager.SetWorld(_world);
-
-        foreach (var injectionContext in _injectionContexts)
-        {
-            injectionContext.InitInjector();
-            _ecsManager.AddInjector(injectionContext.GetInjector());
-        }
     }
 
     private void Start()
     {
-        _ecsManager.InstallModule(new MainEcsModuleInstaller());
+        _ecsManager.InstallModule(new MainModule());
     }
 
     private void Update()
