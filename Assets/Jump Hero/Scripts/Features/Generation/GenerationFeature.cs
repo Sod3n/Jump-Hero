@@ -16,10 +16,13 @@ namespace GenerationAssembly
         public void SetupUpdateSystems(IEcsSystems systems)
         {
             systems
+                .Add(new CreateGenerationRectangle())
+                .Add(new PlaceGenerateSetupMarkers())
                 .Add(new GenerateSetups())
                 .Add(new SetNoiseSeed())
                 .Add(new ActivateSubElements())
                 .DelHere<ChanceOfActivationSubElement>()   
+                .DelHere<GenerateSetupMarker>()
                 ;
         }
 

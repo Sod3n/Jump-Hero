@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace GenerationAssembly
+namespace UtilsAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
@@ -12,11 +11,8 @@ namespace GenerationAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
     [Serializable]
-    public struct GenerationSettings
+    public struct Position2D
     {
-        public Vector2 generationSize;
-        public Vector2Int setupSize;
-        public GameObject[] prefabs;
-        public Dictionary<Vector2, int> vector2ToSetupEntity;
+        public Vector2 Value;
     }
 }

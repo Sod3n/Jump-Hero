@@ -4,6 +4,8 @@ using UnityEngine.UIElements;
 using UnityEngine;
 using Codice.CM.Client.Differences;
 using AleVerDes.LeoEcsLiteZoo;
+using UtilsAssembly;
+using static UnityEditor.PlayerSettings;
 
 namespace GenerationAssembly
 {
@@ -18,8 +20,9 @@ namespace GenerationAssembly
     {
         EcsFilter _entities;
         EcsPool<GenerationSettings> _genSettings;
-        EcsPool<TransformRef> _transformRefs;
         EcsPool<NoiseSettings> _noiseSettings;
+        EcsPool<Owner> _owners;
+        EcsPool<Position2D> _positions2D;
         EcsWorld _world;
 
         public void Init(IEcsSystems systems)
@@ -27,41 +30,29 @@ namespace GenerationAssembly
             _world = systems.GetWorld();
 
             _genSettings = _world.GetPool<GenerationSettings>();
-            _transformRefs = _world.GetPool<TransformRef>();
             _noiseSettings = _world.GetPool<NoiseSettings>();
+            _positions2D = _world.GetPool<Position2D>();
+            _owners = _world.GetPool<Owner>();
         }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<GenerationSettings>().Inc<TransformRef>().Inc<NoiseSettings>().End();
+            if (_entities is null) _entities = _world.Filter<GenerateSetupMarker>().Inc<Owner>().Inc<Position2D>().End();
             if (_entities is null) return;
 
             foreach (int entity in _entities)
             {
-                ref var genSettings = ref _genSettings.Get(entity);
-                ref var transformRef = ref _transformRefs.Get(entity);
+                var owner = _owners.Get(entity);
+                if(!owner.Value.Unpack(_world, out int ownerEntity)) continue;
+                ref var genSettings = ref _genSettings.Get(ownerEntity);
+                var position2D = _positions2D.Get(entity);
 
-                var noiseSettings = _noiseSettings.Get(entity);
-                var setupFabric = new SetupFabric(_world, genSettings.setupSize, genSettings.prefabs, noiseSettings);
+                var noiseSettings = _noiseSettings.Get(ownerEntity);
+                var setupFabric = new SetupFabric(_world, genSettings.setupSize, genSettings.prefabs, noiseSettings, genSettings.vector2ToSetupEntity ?? new System.Collections.Generic.Dictionary<Vector2, int>());
 
-                Vector2 genStart = GetGenerationStart(transformRef.Value.position, genSettings.generationSize);
-                Vector2 genEnd = GetGenerationEnd(transformRef.Value.position, genSettings.generationSize);
-                for (float x = genStart.x; x <= genEnd.x; x += genSettings.setupSize.x)
-                    for (float y = genStart.y; y <= genEnd.y; y += genSettings.setupSize.y)
-                        setupFabric.TryCreate(new Vector2(x, y));
+                setupFabric.TryCreate(position2D.Value);
+
+                genSettings.vector2ToSetupEntity = setupFabric.Vector2ToEntity;
             }
-        }
-
-        private Vector2 GetGenerationStart(Vector2 generationCenter, Vector2 generationSize)
-        {
-            float xStart = generationCenter.x - generationSize.x / 2;
-            float yStart = generationCenter.y - generationSize.y / 2;
-            return new Vector2(xStart, yStart);
-        }
-        private Vector2 GetGenerationEnd(Vector2 generationCenter, Vector2 generationSize)
-        {
-            float xEnd = generationCenter.x + generationSize.x / 2;
-            float yEnd = generationCenter.y + generationSize.y / 2;
-            return new Vector2(xEnd, yEnd);
         }
     }
 }

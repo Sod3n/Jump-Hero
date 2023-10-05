@@ -14,9 +14,10 @@ namespace GenerationAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
 
+
     public class SetupFabric
     {
-        private static Dictionary<Vector2, int> _vector2ToEntity = new Dictionary<Vector2, int>();
+        public Dictionary<Vector2, int> Vector2ToEntity { get; private set; }
 
         private EcsWorld _world;
         private Vector2Int _setupSize;
@@ -25,7 +26,7 @@ namespace GenerationAssembly
 
         private NoiseSettings _noiseSettings;
 
-        public SetupFabric(EcsWorld ecsWorld, Vector2Int setupSize, GameObject[] prefabs, NoiseSettings noiseSettings)
+        public SetupFabric(EcsWorld ecsWorld, Vector2Int setupSize, GameObject[] prefabs, NoiseSettings noiseSettings, Dictionary<Vector2, int> vector2ToEntity)
         {
             _world = ecsWorld;
             _setupSize = setupSize;
@@ -33,12 +34,13 @@ namespace GenerationAssembly
             _prefabs = prefabs;
 
             _noiseSettings = noiseSettings;
+            Vector2ToEntity = vector2ToEntity;
         }
 
-        public void TryCreate(Vector2 position)
+        public void TryCreate(Vector2 atPosition)
         {
-            position = GetSetupPoint(position);
-            if (_vector2ToEntity.ContainsKey(position)) return;
+            atPosition = GenerationMath.GetSetupPoint(atPosition, _setupSize);
+            if (Vector2ToEntity.ContainsKey(atPosition)) return;
 
             int sId = 0;
 
@@ -47,21 +49,13 @@ namespace GenerationAssembly
                 id = sId,
             };
 
-            _vector2ToEntity.Add(position, entity);
+            Vector2ToEntity.Add(atPosition, entity);
 
-            GameObject setup = Object.Instantiate(_prefabs[sId], position, new Quaternion());
+            GameObject setup = Object.Instantiate(_prefabs[sId], atPosition, new Quaternion());
             _gameObjectRefs.Add(entity) = new GameObjectRef
             {
                 Value = setup,
             };
-        }
-        private Vector2 GetSetupPoint(Vector2 insidePosition)
-        {
-            //just clamp our coordinates
-            float x = insidePosition.x - insidePosition.x % _setupSize.x;
-            float y = insidePosition.y - insidePosition.y % _setupSize.y;
-
-            return new Vector2(x, y);
         }
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GenerationAssembly
@@ -12,11 +11,9 @@ namespace GenerationAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
     [Serializable]
-    public struct GenerationSettings
+    public struct GenerationRectangle
     {
-        public Vector2 generationSize;
-        public Vector2Int setupSize;
-        public GameObject[] prefabs;
-        public Dictionary<Vector2, int> vector2ToSetupEntity;
+        public Vector2 LeftDownCorner;
+        public Vector2 RightUpCorner;
     }
 }
