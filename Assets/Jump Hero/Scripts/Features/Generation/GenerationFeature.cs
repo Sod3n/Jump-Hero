@@ -15,7 +15,12 @@ namespace GenerationAssembly
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
-            systems.Add(new GenerateSetups());
+            systems
+                .Add(new GenerateSetups())
+                .Add(new SetNoiseSeed())
+                .Add(new ActivateSubElements())
+                .DelHere<ChanceOfActivationSubElement>()   
+                ;
         }
 
         public void SetupLateUpdateSystems(IEcsSystems systems)

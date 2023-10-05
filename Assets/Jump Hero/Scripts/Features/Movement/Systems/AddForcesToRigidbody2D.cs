@@ -40,6 +40,7 @@ namespace MovementAssembly
                 if (!_bodies.Has(e)) continue;
                 ref Rigidbody2DRef body = ref _bodies.Get(e);
                 body.Value.AddForce(force.powerOfForce.value * force.direction2D.value, ForceMode2D.Force);
+                Debug.Log(force.powerOfForce.value * force.direction2D.value);
             }
         }
     }

@@ -22,12 +22,17 @@ namespace GenerationAssembly
         private Vector2Int _setupSize;
         private EcsPool<GameObjectRef> _gameObjectRefs;
         private GameObject[] _prefabs;
-        public SetupFabric(EcsWorld ecsWorld, Vector2Int setupSize, GameObject[] prefabs)
+
+        private NoiseSettings _noiseSettings;
+
+        public SetupFabric(EcsWorld ecsWorld, Vector2Int setupSize, GameObject[] prefabs, NoiseSettings noiseSettings)
         {
             _world = ecsWorld;
             _setupSize = setupSize;
             _gameObjectRefs = _world.GetPool<GameObjectRef>();
             _prefabs = prefabs;
+
+            _noiseSettings = noiseSettings;
         }
 
         public void TryCreate(Vector2 position)
@@ -52,17 +57,9 @@ namespace GenerationAssembly
         }
         private Vector2 GetSetupPoint(Vector2 insidePosition)
         {
-            //Divide global position by setup size and round down coordinates to get number of setups.
-            //Like if we imagine that setup is a "rectangle"(its actualy is) and then think that one "rectangle"
-            //equals one coordinate unit.
-            float x = (insidePosition.x / _setupSize.x);
-            float y = (insidePosition.y / _setupSize.y);
-            x = Mathf.Floor(x);
-            y = Mathf.Floor(y);
-
-            //And then we tranfer coordinates back by multiply them by "rectangle" side.
-            x = x * _setupSize.x;
-            y = y * _setupSize.y;
+            //just clamp our coordinates
+            float x = insidePosition.x - insidePosition.x % _setupSize.x;
+            float y = insidePosition.y - insidePosition.y % _setupSize.y;
 
             return new Vector2(x, y);
         }

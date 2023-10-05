@@ -19,6 +19,7 @@ namespace GenerationAssembly
         EcsFilter _entities;
         EcsPool<GenerationSettings> _genSettings;
         EcsPool<TransformRef> _transformRefs;
+        EcsPool<NoiseSettings> _noiseSettings;
         EcsWorld _world;
 
         public void Init(IEcsSystems systems)
@@ -27,17 +28,20 @@ namespace GenerationAssembly
 
             _genSettings = _world.GetPool<GenerationSettings>();
             _transformRefs = _world.GetPool<TransformRef>();
+            _noiseSettings = _world.GetPool<NoiseSettings>();
         }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<GenerationSettings>().Inc<TransformRef>().End();
+            if (_entities is null) _entities = _world.Filter<GenerationSettings>().Inc<TransformRef>().Inc<NoiseSettings>().End();
             if (_entities is null) return;
 
             foreach (int entity in _entities)
             {
                 ref var genSettings = ref _genSettings.Get(entity);
                 ref var transformRef = ref _transformRefs.Get(entity);
-                var setupFabric = new SetupFabric(_world, genSettings.setupSize, genSettings.prefabs);
+
+                var noiseSettings = _noiseSettings.Get(entity);
+                var setupFabric = new SetupFabric(_world, genSettings.setupSize, genSettings.prefabs, noiseSettings);
 
                 Vector2 genStart = GetGenerationStart(transformRef.Value.position, genSettings.generationSize);
                 Vector2 genEnd = GetGenerationEnd(transformRef.Value.position, genSettings.generationSize);

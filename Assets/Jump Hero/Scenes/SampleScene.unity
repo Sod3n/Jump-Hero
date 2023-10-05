@@ -134,9 +134,9 @@ GameObject:
   - component: {fileID: 1336542021}
   - component: {fileID: 1336542020}
   - component: {fileID: 1336542019}
+  - component: {fileID: 1336542024}
   - component: {fileID: 1336542023}
   - component: {fileID: 1336542022}
-  - component: {fileID: 1336542024}
   m_Layer: 0
   m_Name: Pixel Perfect Camera
   m_TagString: Untagged
@@ -231,12 +231,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1336542018}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885c991b4a532d84b8ba78606ab51f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value:
+    Value: {fileID: 1336542021}
+--- !u!114 &1336542023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336542018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebde3f276e5e77d4189fa40e7b4336fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Value:
     value: {fileID: 1998779954}
---- !u!114 &1336542023
+--- !u!114 &1336542024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -252,20 +266,6 @@ MonoBehaviour:
   _convertMode: 0
   _collectMode: 0
   _destroyEntityWithGameObject: 0
---- !u!114 &1336542024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336542018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 885c991b4a532d84b8ba78606ab51f67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Value:
-    Value: {fileID: 1336542021}
 --- !u!1 &1526156232
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +332,8 @@ GameObject:
   - component: {fileID: 1998779963}
   - component: {fileID: 1998779964}
   - component: {fileID: 1998779965}
+  - component: {fileID: 1998779966}
+  - component: {fileID: 1998779967}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -412,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value:
-    value: 4
+    value: 10
 --- !u!114 &1998779958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +590,33 @@ MonoBehaviour:
     prefabs:
     - {fileID: 527354629894210949, guid: 6ec4d3f7bf281be42b249c03866d7c28, type: 3}
 --- !u!114 &1998779965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998779952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a458318bb685f2a4ba63993b12c5bcab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value:
+    octave: 3
+    seed: 0
+--- !u!114 &1998779966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998779952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad5607ef992a8c41ae57fd1d5f6f626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1998779967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
