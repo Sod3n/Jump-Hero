@@ -16,10 +16,9 @@ namespace MovementAssembly
         public void SetupUpdateSystems(IEcsSystems systems)
         {
             systems
-                .Add(new ConvertPlayerInputToForcePlayer())
-                .Add(new AddForcesToRigidbody2D())
+                
                 .Add(new FollowTransformsWithLerp())
-                .DelHere<Force>();
+                ;
         }
 
         public void SetupLateUpdateSystems(IEcsSystems systems)
@@ -28,6 +27,11 @@ namespace MovementAssembly
 
         public void SetupFixedUpdateSystems(IEcsSystems systems)
         {
+            systems
+                .Add(new ConvertPlayerInputToForcePlayer())
+                .Add(new AddForcesToRigidbody2D())
+                .DelHere<Force>()
+                ;
         }
 
         public void SetupInjector(IEcsInjector injector)
