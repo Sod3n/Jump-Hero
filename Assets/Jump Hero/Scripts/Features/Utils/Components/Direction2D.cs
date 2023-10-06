@@ -13,6 +13,6 @@ namespace UtilsAssembly
     [Serializable]
     public struct Direction2D
     {
-        public Vector2 value;
+        public Vector2 Value;
     }
 }

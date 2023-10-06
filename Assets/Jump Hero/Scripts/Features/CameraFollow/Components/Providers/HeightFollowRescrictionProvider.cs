@@ -1,6 +1,4 @@
-using Leopotam.EcsLite;
-using System;
-using UnityEngine;
+using AleVerDes.LeoEcsLiteZoo;
 
 namespace MovementAssembly
 {
@@ -11,9 +9,7 @@ namespace MovementAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    [Serializable]
-    public struct TransformForFollowWithLerp
+    public class HeightFollowRescrictionProvider : ConvertComponent<HeightFollowRescriction>
     {
-        public Transform value;
     }
 }

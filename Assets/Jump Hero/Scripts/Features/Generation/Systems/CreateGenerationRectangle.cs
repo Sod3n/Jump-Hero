@@ -41,8 +41,8 @@ namespace GenerationAssembly
                 var transformRef = _transformRefs.Get(entity);
 
                 var newGenerationRectangle = new GenerationRectangle();
-                newGenerationRectangle.LeftDownCorner = GetGenerationLeftDownCorner(transformRef.Value.position, generationSettings.generationSize);
-                newGenerationRectangle.RightUpCorner = GetGenerationRightUpCorner(transformRef.Value.position, generationSettings.generationSize);
+                newGenerationRectangle.LeftDownCorner = GetGenerationLeftDownCorner(transformRef.Value.position, generationSettings.GenerationSize);
+                newGenerationRectangle.RightUpCorner = GetGenerationRightUpCorner(transformRef.Value.position, generationSettings.GenerationSize);
                 if (!_generationRectangles.Has(entity))
                     _generationRectangles.Add(entity) = newGenerationRectangle;
                 ref var generationRectangle = ref _generationRectangles.Get(entity);

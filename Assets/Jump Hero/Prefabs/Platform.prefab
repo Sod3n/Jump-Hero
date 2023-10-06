@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value:
-    value: 100
+    Value: 40
 --- !u!114 &8074919677293048510
 MonoBehaviour:
   m_ObjectHideFlags: 0

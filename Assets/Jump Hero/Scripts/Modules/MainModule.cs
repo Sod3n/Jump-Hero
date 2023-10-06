@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MovementAssembly;
 using UtilsAssembly;
 using GenerationAssembly;
+using CameraFollowAssembly;
 
 internal class MainModule : IEcsModuleInstaller
 {
@@ -18,6 +19,7 @@ internal class MainModule : IEcsModuleInstaller
             .AddFeature(new UtilsFeature())
             .AddFeature(new MovementFeature())
             .AddFeature(new GenerationFeature())
+            .AddFeature(new CameraFollowFeature())
             ;
 
         return module;

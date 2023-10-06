@@ -41,8 +41,8 @@ namespace GenerationAssembly
                 ref var genSettings = ref _genSettings.Get(entity);
                 var generationRectangle = _generationRectangles.Get(entity);
 
-                for (float x = generationRectangle.LeftDownCorner.x; x <= generationRectangle.RightUpCorner.x; x += genSettings.setupSize.x)
-                    for (float y = generationRectangle.LeftDownCorner.y; y <= generationRectangle.RightUpCorner.y; y += genSettings.setupSize.y)
+                for (float x = generationRectangle.LeftDownCorner.x; x <= generationRectangle.RightUpCorner.x; x += genSettings.SetupSize.x)
+                    for (float y = generationRectangle.LeftDownCorner.y; y <= generationRectangle.RightUpCorner.y; y += genSettings.SetupSize.y)
                     {
                         _world.NewEntityWith<GenerateSetupMarker>(out int marker);
                         _positions2D.Add(marker) = new Position2D

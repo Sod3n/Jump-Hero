@@ -14,9 +14,9 @@ namespace GenerationAssembly
     [Serializable]
     public struct GenerationSettings
     {
-        public Vector2 generationSize;
-        public Vector2Int setupSize;
-        public GameObject[] prefabs;
-        public Dictionary<Vector2, int> vector2ToSetupEntity;
+        public Vector2 GenerationSize;
+        public Vector2Int SetupSize;
+        public GameObject[] Prefabs;
+        public Dictionary<Vector2, int> Vector2ToSetupEntity;
     }
 }

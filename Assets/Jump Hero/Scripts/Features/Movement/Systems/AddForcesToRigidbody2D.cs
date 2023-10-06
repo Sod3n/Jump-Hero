@@ -36,10 +36,10 @@ namespace MovementAssembly
             foreach (int entity in _entities)
             {
                 ref Force force = ref _forces.Get(entity);
-                if (!force.targetOfForce.value.Unpack(world, out int e)) continue;
+                if (!force.TargetOfForce.Value.Unpack(world, out int e)) continue;
                 if (!_bodies.Has(e)) continue;
                 ref Rigidbody2DRef body = ref _bodies.Get(e);
-                body.Value.AddForce(force.powerOfForce.value * force.direction2D.value, ForceMode2D.Force);
+                body.Value.AddForce(force.PowerOfForce.Value * force.Direction2D.Value, ForceMode2D.Force);
             }
         }
     }

@@ -1,4 +1,6 @@
-using UtilsAssembly;
+using Leopotam.EcsLite;
+using System;
+using UnityEngine;
 
 namespace MovementAssembly
 {
@@ -9,10 +11,9 @@ namespace MovementAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public struct Force
+    [Serializable]
+    public struct TransformForFollowWithLerp
     {
-        public PowerOfForce PowerOfForce;
-        public TargetOfForce TargetOfForce;
-        public Direction2D Direction2D;
+        public Transform Value;
     }
 }

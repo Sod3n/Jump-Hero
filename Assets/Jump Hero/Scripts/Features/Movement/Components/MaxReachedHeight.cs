@@ -1,4 +1,4 @@
-using AleVerDes.LeoEcsLiteZoo;
+using System;
 
 namespace MovementAssembly
 {
@@ -9,7 +9,9 @@ namespace MovementAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class TargetForFollowWithLerpProvider : ConvertComponent<TransformForFollowWithLerp>
+    [Serializable]
+    public struct MaxReachedHeight
     {
+        public float Value;
     }
 }

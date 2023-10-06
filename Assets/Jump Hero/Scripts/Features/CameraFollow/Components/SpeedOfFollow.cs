@@ -1,8 +1,7 @@
-using AleVerDes.LeoEcsLiteZoo;
 using System;
 using UnityEngine;
 
-namespace GenerationAssembly
+namespace CameraFollowAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
@@ -12,8 +11,11 @@ namespace GenerationAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
     [Serializable]
-    public struct Setup
+    public struct SpeedOfFollow
     {
-        public int Id;
+        [NonSerialized] public Vector2 CurrentValue;
+        [NonSerialized] public Vector2 TargetValue;
+        [Range(0.01f, float.MaxValue)]
+        public float Lerp;
     }
 }

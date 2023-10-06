@@ -38,17 +38,18 @@ namespace MovementAssembly
 
             foreach (int entity in _entities)
             {
-                ref PlayerActions playerActions = ref _playerActions.Get(entity);
-                ref PowerOfForce powerOfForce = ref _powersOfForce.Get(entity);
+                PlayerActions playerActions = _playerActions.Get(entity);
+                PowerOfForce powerOfForce = _powersOfForce.Get(entity);
 
-                Vector2 dir = playerActions.tapping.action.ReadValue<Vector2>();
+                Vector2 dir = playerActions.Tapping.action.ReadValue<Vector2>();
                 if (dir == Vector2.zero) continue;
 
                 int e = world.NewEntity();
                 ref Force force = ref _forces.Add(e);
-                force.powerOfForce = powerOfForce;
-                force.targetOfForce.value = world.PackEntity(entity);
-                force.direction2D.value = TapPositionToDirection(dir);
+                force.PowerOfForce = powerOfForce;
+                force.PowerOfForce.Value *= Time.deltaTime * 100;
+                force.TargetOfForce.Value = world.PackEntity(entity);
+                force.Direction2D.Value = TapPositionToDirection(dir);
             }
         }
 

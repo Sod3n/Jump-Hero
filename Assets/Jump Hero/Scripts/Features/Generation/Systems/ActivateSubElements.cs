@@ -42,17 +42,22 @@ namespace GenerationAssembly
 
                 var noiseSettings = _noiseSettings.Get(_noiseSettingsEntity);
 
-                float threshold = 1 - chanceOfActivation.value * 2 / 100;
+                float threshold = GetThreshold(chanceOfActivation.Value, noiseSettings.Octave);
                 Vector2 pos = gameObjectRef.Value.transform.position;
-
-                Perlin.Seed = noiseSettings.seed;
+                
+                Perlin.Seed = noiseSettings.Seed;
 
                 gameObjectRef.Value.SetActive(true);
-                if (Perlin.Fbm(pos, noiseSettings.octave) > threshold) continue;
+                if (Perlin.Fbm(pos * noiseSettings.Scale, noiseSettings.Octave) > threshold) continue;
 
                 gameObjectRef.Value.SetActive(false);
                 _world.DelEntity(entity);
             }
+        }
+        private float GetThreshold(float chanceOfActivation, int octave)
+        {
+            float floor = 0.51f / (2);
+            return floor - chanceOfActivation * 2 * floor / 100;
         }
     }
 }

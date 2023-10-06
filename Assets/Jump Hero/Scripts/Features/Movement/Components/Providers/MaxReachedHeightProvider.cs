@@ -1,4 +1,4 @@
-using UtilsAssembly;
+using AleVerDes.LeoEcsLiteZoo;
 
 namespace MovementAssembly
 {
@@ -9,10 +9,7 @@ namespace MovementAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public struct Force
+    public class MaxReachedHeightProvider : ConvertComponent<MaxReachedHeight>
     {
-        public PowerOfForce PowerOfForce;
-        public TargetOfForce TargetOfForce;
-        public Direction2D Direction2D;
     }
 }

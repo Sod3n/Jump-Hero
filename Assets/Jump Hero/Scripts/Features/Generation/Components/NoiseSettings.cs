@@ -12,7 +12,8 @@ namespace GenerationAssembly
     [Serializable]
     public struct NoiseSettings
     {
-        public int octave;
-        public float seed;
+        public int Octave;
+        [NonSerialized] public float Seed;
+        public float Scale;
     }
 }

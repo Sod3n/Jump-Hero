@@ -14,6 +14,6 @@ namespace GenerationAssembly
     public struct ChanceOfActivationSubElement
     {
         [Range(0, 100)]
-        public float value;
+        public float Value;
     }
 }

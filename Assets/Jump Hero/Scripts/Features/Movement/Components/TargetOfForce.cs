@@ -14,6 +14,6 @@ namespace MovementAssembly
     [Serializable]
     public struct TargetOfForce
     {
-        public EcsPackedEntity value;
+        public EcsPackedEntity Value;
     }
 }

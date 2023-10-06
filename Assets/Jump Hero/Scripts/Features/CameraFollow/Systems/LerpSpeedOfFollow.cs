@@ -2,7 +2,7 @@ using Leopotam.EcsLite;
 using System.ComponentModel;
 using UnityEngine;
 
-namespace GenerationAssembly
+namespace CameraFollowAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
@@ -12,32 +12,28 @@ namespace GenerationAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
 
-    internal class SetNoiseSeed : IEcsRunSystem
+    internal class LerpSpeedOfFollow : IEcsRunSystem
     {
         EcsFilter _entities;
-        EcsPool<NoiseSettings> _noiseSettings;
+        EcsPool<SpeedOfFollow> _speedsOfFollow;
         EcsWorld _world;
-
-        float _noiseSeed;
 
         public void Init(IEcsSystems systems)
         {
             _world = systems.GetWorld();
 
-            _noiseSettings = _world.GetPool<NoiseSettings>();
-            _noiseSeed = Random.Range(float.MinValue, float.MaxValue/4);
+            _speedsOfFollow = _world.GetPool<SpeedOfFollow>();
         }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<NoiseSettings>().End();
+            if (_entities is null) _entities = _world.Filter<SpeedOfFollow>().End();
             if (_entities is null) return;
 
             foreach (int entity in _entities)
             {
-                ref var noiseSettings = ref _noiseSettings.Get(entity);
-                noiseSettings.Seed = _noiseSeed;
+                ref var speedOfFollow = ref _speedsOfFollow.Get(entity);
 
-
+                speedOfFollow.CurrentValue = Vector2.Lerp(speedOfFollow.CurrentValue, speedOfFollow.TargetValue, Time.deltaTime / speedOfFollow.Lerp);
             }
         }
     }

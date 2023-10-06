@@ -14,6 +14,6 @@ namespace UtilsAssembly
     [Serializable]
     public struct PlayerActions
     {
-        public InputActionReference tapping;
+        public InputActionReference Tapping;
     }
 }

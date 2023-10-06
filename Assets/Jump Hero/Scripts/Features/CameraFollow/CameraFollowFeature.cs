@@ -1,25 +1,25 @@
 ﻿using AleVerDes.LeoEcsLiteZoo;
 using Leopotam.EcsLite;
+using MovementAssembly;
 
-
-namespace MovementAssembly
+namespace CameraFollowAssembly
 {
-    #if ENABLE_IL2CPP
+#if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
 
         [Il2CppSetOption(Option.NullChecks, false)]
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    #endif
-    public class MovementFeature : IEcsFeature
+#endif
+    public class CameraFollowFeature : IEcsFeature
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
             systems
-                .Add(new ConvertPlayerInputToForcePlayer())
-                .Add(new AddForcesToRigidbody2D())
-                .Add(new TrackHeight())
-                .DelHere<Force>()
+                .Add(new FollowTransformsWithLerp())
+                .Add(new ConvertMaxHeightOfFollowedToRestrictions())
+                .Add(new LerpSpeedOfFollow())
+                .Add(new ChangeFollowSpeedByRestrictions())
                 ;
         }
 

@@ -45,10 +45,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 527354629894210948}
     m_Modifications:
-    - target: {fileID: 5085502963035986563, guid: 6276e0ea1e9cf2f4e8a1c49d379640c9, type: 3}
-      propertyPath: Value.value
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 8614234514827605721, guid: 6276e0ea1e9cf2f4e8a1c49d379640c9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -111,10 +107,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 527354629894210948}
     m_Modifications:
-    - target: {fileID: 5085502963035986563, guid: 6276e0ea1e9cf2f4e8a1c49d379640c9, type: 3}
-      propertyPath: Value.value
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 8614234514827605721, guid: 6276e0ea1e9cf2f4e8a1c49d379640c9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -177,10 +169,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 527354629894210948}
     m_Modifications:
-    - target: {fileID: 5085502963035986563, guid: 6276e0ea1e9cf2f4e8a1c49d379640c9, type: 3}
-      propertyPath: Value.value
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 8614234514827605721, guid: 6276e0ea1e9cf2f4e8a1c49d379640c9, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -243,10 +231,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 527354629894210948}
     m_Modifications:
-    - target: {fileID: 5085502963035986563, guid: 6276e0ea1e9cf2f4e8a1c49d379640c9, type: 3}
-      propertyPath: Value.value
-      value: 75
-      objectReference: {fileID: 0}
     - target: {fileID: 8614234514827605721, guid: 6276e0ea1e9cf2f4e8a1c49d379640c9, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -371,10 +355,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 527354629894210948}
     m_Modifications:
-    - target: {fileID: 5085502963035986563, guid: 6276e0ea1e9cf2f4e8a1c49d379640c9, type: 3}
-      propertyPath: Value.value
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 8614234514827605721, guid: 6276e0ea1e9cf2f4e8a1c49d379640c9, type: 3}
       propertyPath: m_RootOrder
       value: 4

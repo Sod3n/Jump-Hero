@@ -23,6 +23,7 @@ namespace GenerationAssembly
         EcsPool<NoiseSettings> _noiseSettings;
         EcsPool<Owner> _owners;
         EcsPool<Position2D> _positions2D;
+        EcsPool<GameObjectRef> _gameObjectRefs;
         EcsWorld _world;
 
         public void Init(IEcsSystems systems)
@@ -33,6 +34,7 @@ namespace GenerationAssembly
             _noiseSettings = _world.GetPool<NoiseSettings>();
             _positions2D = _world.GetPool<Position2D>();
             _owners = _world.GetPool<Owner>();
+            _gameObjectRefs = _world.GetPool<GameObjectRef>();
         }
         public void Run(IEcsSystems systems)
         {
@@ -44,14 +46,28 @@ namespace GenerationAssembly
                 var owner = _owners.Get(entity);
                 if(!owner.Value.Unpack(_world, out int ownerEntity)) continue;
                 ref var genSettings = ref _genSettings.Get(ownerEntity);
-                var position2D = _positions2D.Get(entity);
+                var position2D = _positions2D.Get(entity).Value;
 
                 var noiseSettings = _noiseSettings.Get(ownerEntity);
-                var setupFabric = new SetupFabric(_world, genSettings.setupSize, genSettings.prefabs, noiseSettings, genSettings.vector2ToSetupEntity ?? new System.Collections.Generic.Dictionary<Vector2, int>());
+                genSettings.Vector2ToSetupEntity ??= new System.Collections.Generic.Dictionary<Vector2, int>();
 
-                setupFabric.TryCreate(position2D.Value);
+                position2D = GenerationMath.GetSetupPoint(position2D, genSettings.SetupSize);
+                if (genSettings.Vector2ToSetupEntity.ContainsKey(position2D)) continue;
 
-                genSettings.vector2ToSetupEntity = setupFabric.Vector2ToEntity;
+                int sId = 0;
+
+                _world.NewEntityWith<Setup>(out int setupEnt) = new Setup()
+                {
+                    Id = sId,
+                };
+
+                genSettings.Vector2ToSetupEntity.Add(position2D, setupEnt);
+
+                GameObject setup = Object.Instantiate(genSettings.Prefabs[sId], position2D, new Quaternion());
+                _gameObjectRefs.Add(entity) = new GameObjectRef
+                {
+                    Value = setup,
+                };
             }
         }
     }
