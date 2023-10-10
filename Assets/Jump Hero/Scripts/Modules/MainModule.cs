@@ -16,10 +16,10 @@ internal class MainModule : IEcsModuleInstaller
         var module = new EcsModule();
 
         module
-            .AddFeature(new UtilsFeature())
-            .AddFeature(new MovementFeature())
-            .AddFeature(new GenerationFeature())
-            .AddFeature(new CameraFollowFeature())
+            .Add(new UtilsFeature())
+            .Add(new MovementFeature())
+            .Add(new GenerationFeature())
+            .Add(new CameraFollowFeature())
             ;
 
         return module;
