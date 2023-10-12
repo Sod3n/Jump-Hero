@@ -38,10 +38,6 @@ namespace MovementAssembly
                 var onGround = _onGrounds.Get(entity).Value;
 
                 if (onGround) stamina.CurrentValue = stamina.MaxValue;
-                else
-                {
-                    stamina.CurrentValue -= Time.fixedDeltaTime;
-                }
             }
         }
     }
