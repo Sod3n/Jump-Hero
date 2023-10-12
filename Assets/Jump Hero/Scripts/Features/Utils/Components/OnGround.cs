@@ -1,19 +1,17 @@
-using Leopotam.EcsLite;
+using System;
 
 namespace UtilsAssembly
 {
-    #if ENABLE_IL2CPP
+#if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
 
         [Il2CppSetOption(Option.NullChecks, false)]
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    #endif
-    internal class ECSSystem : IEcsRunSystem
+#endif
+    [Serializable]
+    public struct OnGround
     {
-        public void Run(IEcsSystems systems)
-        {
-
-        }
+        public bool Value;
     }
 }

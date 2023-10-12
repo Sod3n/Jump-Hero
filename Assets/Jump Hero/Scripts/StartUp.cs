@@ -2,6 +2,7 @@ using Leopotam.EcsLite;
 using UnityEngine;
 using AleVerDes.LeoEcsLiteZoo;
 using System.Collections.Generic;
+using LeoEcsPhysics;
 
 public class StartUp : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class StartUp : MonoBehaviour
     {
         _world = new EcsWorld();
         ConvertToEntity.DefaultConversionWorld = _world;
-
+        EcsPhysicsEvents.ecsWorld = _world;
         _ecsManager = new EcsManager();
         _ecsManager.SetWorld(_world);
     }

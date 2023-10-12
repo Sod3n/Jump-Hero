@@ -1,7 +1,5 @@
 using AleVerDes.LeoEcsLiteZoo;
-using System;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
-using UnityEngine.InputSystem;
+
 namespace UtilsAssembly
 {
 #if ENABLE_IL2CPP
@@ -11,9 +9,7 @@ namespace UtilsAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    [Serializable]
-    public struct PlayerActions
+    public class InputActionsProvider : ConvertComponent<InputActions>
     {
-        public InputActionReference Tapping;
     }
 }

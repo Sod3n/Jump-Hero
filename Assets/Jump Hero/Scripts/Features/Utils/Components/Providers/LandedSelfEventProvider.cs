@@ -1,6 +1,6 @@
-using UtilsAssembly;
+using AleVerDes.LeoEcsLiteZoo;
 
-namespace MovementAssembly
+namespace UtilsAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
@@ -9,10 +9,7 @@ namespace MovementAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public struct Force
+    public class LandedSelfEventProvider : ConvertComponent<LandedSelfEvent>
     {
-        public PowerOfForce PowerOfForce;
-        public TargetOfForce TargetOfForce;
-        public Direction2D Direction2D;
     }
 }

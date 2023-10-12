@@ -22,7 +22,7 @@ namespace GenerationAssembly
                 .Add(new SetNoiseSeed())
                 .Add(new ActivateSubElements())
                 .DelHere<ChanceOfActivationSubElement>()   
-                .DelHere<GenerateSetupMarker>()
+                .DelHereEntityWith<GenerateSetupMarker>()
                 ;
         }
 

@@ -15,41 +15,59 @@ namespace MovementAssembly
     /// <summary>
     /// This System generate entities with ForceTarget component. For deleting this entities responsible another leoecszoo system "DelHere".
     /// </summary>
-    internal class ConvertPlayerInputToForcePlayer : IEcsRunSystem
+    internal class InputActionsToCommands : IEcsRunSystem
     {
         EcsFilter _entities;
-        EcsPool<PlayerActions> _playerActions;
+        EcsPool<InputActions> _playerActions;
         EcsPool<PowerOfForce> _powersOfForce;
-        EcsPool<Force> _forces;
+        EcsPool<ForceCommand> _forces;
+        EcsPool<Stamina> _stamina;
+        EcsPool<Momentum> _momentums;
 
         public void Init(IEcsSystems systems)
         {
             EcsWorld world = systems.GetWorld();
-            _playerActions = world.GetPool<PlayerActions>();
+            _playerActions = world.GetPool<InputActions>();
             _powersOfForce = world.GetPool<PowerOfForce>();
-            _forces = world.GetPool<Force>();
+            _forces = world.GetPool<ForceCommand>();
+            _stamina = world.GetPool<Stamina>();
+            _momentums = world.GetPool<Momentum>();
         }
         public void Run(IEcsSystems systems)
         {
             EcsWorld world = systems.GetWorld();
 
-            if (_entities is null) _entities = world.Filter<PlayerActions>().Inc<PowerOfForce>().End();
+            if (_entities is null) _entities = world.Filter<InputActions>().Inc<PowerOfForce>().End();
             if (_entities is null) return;
 
             foreach (int entity in _entities)
             {
-                PlayerActions playerActions = _playerActions.Get(entity);
+                InputActions playerActions = _playerActions.Get(entity);
                 PowerOfForce powerOfForce = _powersOfForce.Get(entity);
 
                 Vector2 dir = playerActions.Tapping.action.ReadValue<Vector2>();
                 if (dir == Vector2.zero) continue;
 
+                if (_stamina.Has(entity))
+                {
+                    var stamina = _stamina.Get(entity);
+                    if (stamina.CurrentValue <= 0) continue;
+                }
+
                 int e = world.NewEntity();
-                ref Force force = ref _forces.Add(e);
+                ref ForceCommand force = ref _forces.Add(e);
                 force.PowerOfForce = powerOfForce;
+
+                if (_momentums.Has(entity))
+                {
+                    _momentums.Add(e) = _momentums.Get(entity);
+                }
+
                 force.PowerOfForce.Value *= Time.deltaTime * 100;
                 force.TargetOfForce.Value = world.PackEntity(entity);
                 force.Direction2D.Value = TapPositionToDirection(dir);
+
+                
             }
         }
 

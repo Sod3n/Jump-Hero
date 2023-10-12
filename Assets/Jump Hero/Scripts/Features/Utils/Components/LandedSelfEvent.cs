@@ -1,4 +1,4 @@
-using AleVerDes.LeoEcsLiteZoo;
+using System;
 
 namespace UtilsAssembly
 {
@@ -9,7 +9,9 @@ namespace UtilsAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class PlayerActionsProvider : ConvertComponent<PlayerActions>
+    [Serializable]
+    public struct LandedSelfEvent
     {
+
     }
 }
