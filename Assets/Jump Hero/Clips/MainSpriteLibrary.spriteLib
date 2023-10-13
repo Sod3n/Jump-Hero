@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: player-idle_0
+    m_Hash: 845826343
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: player-idle_0
+      m_Hash: 845826343
+      m_Sprite: {fileID: -991799392, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -991799392, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+    - m_Name: player-idle_1
+      m_Hash: 91060657
+      m_Sprite: {fileID: -2069660173, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2069660173, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+    - m_Name: player-idle_2
+      m_Hash: 476325899
+      m_Sprite: {fileID: -2010173775, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2010173775, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+    - m_Name: player-idle_3
+      m_Hash: 727914653
+      m_Sprite: {fileID: 309768299, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 309768299, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+    - m_Name: player-idle_4
+      m_Hash: 889687358
+      m_Sprite: {fileID: -98039652, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -98039652, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+    - m_Name: player-idle_5
+      m_Hash: 33602984
+      m_Sprite: {fileID: 914585093, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 914585093, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+    - m_Name: player-idle_6
+      m_Hash: 453635090
+      m_Sprite: {fileID: 1579261843, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1579261843, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+    - m_Name: player-idle_7
+      m_Hash: 739171460
+      m_Sprite: {fileID: 1189916369, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1189916369, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+    - m_Name: player-idle_8
+      m_Hash: 1018282261
+      m_Sprite: {fileID: -267104314, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -267104314, guid: 6cc7896bd82b8be47a4291f611afa74e, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 9
+  m_PrimaryLibraryGUID: 

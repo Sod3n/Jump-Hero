@@ -63,7 +63,7 @@ namespace MovementAssembly
                     _momentums.Add(e) = _momentums.Get(entity);
                 }
 
-                force.PowerOfForce.Value *= Time.deltaTime * 100;
+                force.PowerOfForce.Value *= Time.fixedDeltaTime * 25;
                 force.TargetOfForce.Value = world.PackEntity(entity);
                 force.Direction2D.Value = TapPositionToDirection(dir);
 
@@ -73,19 +73,20 @@ namespace MovementAssembly
 
         private Vector2 TapPositionToDirection(Vector2 tapPosition)
         {
+            int width = Display.main.systemWidth;
             Vector2 dir;
             switch (tapPosition.x)
             {
-                case float x when (x > 0 && x <= 160):
+                case float x when (x > 0 && x <= width * 0.3333):
                     dir = Vector2.left + Vector2.up * 5;
                     dir.Normalize();
                     return dir;
 
-                case float x when (x > 160 && x <= 320):
+                case float x when (x > width * 0.3333 && x <= width * 0.6666):
                     dir = Vector2.up;
                     return dir;
 
-                case float x when (x > 320 && x <= 480):
+                case float x when (x > width * 0.6666 && x <= width):
                     dir = Vector2.right + Vector2.up * 5;
                     dir.Normalize();
                     return dir;

@@ -42,15 +42,15 @@ namespace UtilsAssembly
             foreach (int enter in _enterEvents)
             {
                 var onCollisionEnterEvent = _onCollisionEnter2DEvents.Get(enter);
-
-                if(!onCollisionEnterEvent.firstContactPoint2D.enabled) continue; //sure that platform effector not doing its stuff
+                
+                if (!onCollisionEnterEvent.firstContactPoint2D.enabled) continue; //sure that platform effector not doing its stuff
                 
                 if(onCollisionEnterEvent.collider2D.gameObject.TryGetEntity(out var groundEntity))
                 {
                     if (!_groundMarkers.Has(groundEntity)) continue;
                 }
-
-                if(onCollisionEnterEvent.senderGameObject.TryGetEntity(out var senderEntity))
+                
+                if (onCollisionEnterEvent.senderGameObject.TryGetEntity(out var senderEntity))
                 {
                     if (!_onGrounds.Has(senderEntity)) continue;
                     ref var onGround = ref _onGrounds.Get(senderEntity);
