@@ -1,0 +1,18 @@
+{
+    "name": "DeathAssembly",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e278bafe8b6736b4ab972b027ebe2322",
+        "GUID:e59bf9fc7d5a44b18a819a92edd46163",
+        "GUID:9783e8d305c39d741bb9b0aff0252129"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
