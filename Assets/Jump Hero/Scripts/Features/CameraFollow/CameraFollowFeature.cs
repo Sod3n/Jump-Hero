@@ -17,9 +17,9 @@ namespace CameraFollowAssembly
         {
             systems
                 .Add(new FollowTransformsWithLerp())
-                .Add(new ConvertMaxHeightOfFollowedToRestrictions())
+                //.Add(new ConvertMaxHeightOfFollowedToRestrictions())
                 .Add(new LerpSpeedOfFollow())
-                .Add(new ChangeFollowSpeedByRestrictions())
+                //.Add(new ChangeFollowSpeedByRestrictions())
                 ;
         }
 

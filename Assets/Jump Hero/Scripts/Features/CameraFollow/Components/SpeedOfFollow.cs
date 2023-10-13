@@ -14,7 +14,7 @@ namespace CameraFollowAssembly
     public struct SpeedOfFollow
     {
         [NonSerialized] public Vector2 CurrentValue;
-        [NonSerialized] public Vector2 TargetValue;
+        public Vector2 TargetValue;
         [Range(0.01f, float.MaxValue)]
         public float Lerp;
     }
