@@ -1,6 +1,6 @@
 using System;
 
-namespace UtilsAssembly
+namespace MovementByPhysicsAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
@@ -10,7 +10,7 @@ namespace UtilsAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
     [Serializable]
-    public struct GroundMarker
+    public struct OnGroundCollisionEvent
     {
 
     }

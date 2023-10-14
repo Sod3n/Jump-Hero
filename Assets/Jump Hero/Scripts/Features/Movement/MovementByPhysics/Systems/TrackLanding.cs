@@ -4,7 +4,7 @@ using Leopotam.EcsLite;
 using System.ComponentModel;
 using UnityEngine;
 
-namespace UtilsAssembly
+namespace MovementByPhysicsAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;

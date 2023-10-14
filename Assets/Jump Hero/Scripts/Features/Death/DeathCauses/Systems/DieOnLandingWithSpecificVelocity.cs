@@ -1,6 +1,7 @@
 using AleVerDes.LeoEcsLiteZoo;
 using DeathProcessAssembly;
 using Leopotam.EcsLite;
+using MovementByPhysicsAssembly;
 using System.ComponentModel;
 using UtilsAssembly;
 

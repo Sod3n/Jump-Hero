@@ -1,39 +1,31 @@
 ﻿using AleVerDes.LeoEcsLiteZoo;
-using LeoEcsPhysics;
 using Leopotam.EcsLite;
+using UtilsAssembly;
 
-
-namespace UtilsAssembly
+namespace MovementByPhysicsAssembly
 {
-    #if ENABLE_IL2CPP
+#if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
 
         [Il2CppSetOption(Option.NullChecks, false)]
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
-    #endif
-    public class UtilsFeature : IEcsFeature
+#endif
+    public class MovementByPhysicsFeature : IEcsFeature
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
             systems
-                .Add(new GenerateTapEvent())
-                .Add(new TrackLastTap())
-#if UNITY_EDITOR
-
-                .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
-                .Add(new Leopotam.EcsLite.UnityEditor.EcsSystemsDebugSystem())
-#endif
+                .Add(new TrackLanding())
+                .Add(new TrackFalls())
+                .Add(new GenerateOnGroundCollisionEvent())
                 ;
         }
 
         public void SetupLateUpdateSystems(IEcsSystems systems)
         {
             systems
-                .DelHere<OnCollisionEnter2DEvent>()
-                .DelHere<OnCollisionExit2DEvent>()
-                .DelHere<TapDownSelfEvent>()
-                .DelHere<TapUpSelfEvent>()
+                .DelHere<LandedSelfEvent>()
                 ;
         }
 

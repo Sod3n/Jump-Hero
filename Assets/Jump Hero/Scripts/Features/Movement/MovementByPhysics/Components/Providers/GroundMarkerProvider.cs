@@ -1,6 +1,6 @@
 using AleVerDes.LeoEcsLiteZoo;
 
-namespace UtilsAssembly
+namespace MovementByPhysicsAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
@@ -9,7 +9,7 @@ namespace UtilsAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class OnGroundProvider : ConvertComponent<OnGround>
+    public class GroundMarkerProvider : ConvertComponent<GroundMarker>
     {
     }
 }

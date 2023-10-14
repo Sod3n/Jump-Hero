@@ -1,6 +1,6 @@
 using AleVerDes.LeoEcsLiteZoo;
 
-namespace UtilsAssembly
+namespace MovementByPhysicsAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;

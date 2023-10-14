@@ -1,5 +1,5 @@
-using AleVerDes.LeoEcsLiteZoo;
 using Leopotam.EcsLite;
+using MovementByPhysicsAssembly;
 using System.ComponentModel;
 using UnityEngine;
 using UtilsAssembly;
@@ -14,29 +14,31 @@ namespace MovementAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
 
-    internal class ResetVelocityOnLanding : IEcsRunSystem
+    internal class ResetStaminaOnGround : IEcsRunSystem
     {
         EcsFilter _entities;
-        EcsPool<Rigidbody2DRef> _rigidbody2DRefs;
-        EcsPool<LandedSelfEvent> _landedSelfEvents;
+        EcsPool<Stamina> _staminas;
+        EcsPool<OnGround> _onGrounds;
         EcsWorld _world;
 
         public void Init(IEcsSystems systems)
         {
             _world = systems.GetWorld();
 
-            _rigidbody2DRefs = _world.GetPool<Rigidbody2DRef>();
-            _landedSelfEvents = _world.GetPool<LandedSelfEvent>();
+            _staminas = _world.GetPool<Stamina>();
+            _onGrounds = _world.GetPool<OnGround>();
         }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<Rigidbody2DRef>().Inc<LandedSelfEvent>().End();
+            if (_entities is null) _entities = _world.Filter<Stamina>().Inc<OnGround>().Inc<TapDownSelfEvent>().End();
             if (_entities is null) return;
 
             foreach (int entity in _entities)
             {
-                ref var body = ref _rigidbody2DRefs.Get(entity);
-                body.Value.velocity = Vector3.zero;
+                ref var stamina = ref _staminas.Get(entity);
+                var onGround = _onGrounds.Get(entity).Value;
+
+                if (onGround) stamina.CurrentValue = stamina.MaxValue;
             }
         }
     }
