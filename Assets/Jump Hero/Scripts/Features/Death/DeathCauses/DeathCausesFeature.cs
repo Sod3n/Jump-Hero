@@ -2,7 +2,7 @@
 using Leopotam.EcsLite;
 
 
-namespace DeathAssembly
+namespace DeathCausesAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
@@ -11,11 +11,11 @@ namespace DeathAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class DeathFeature : IEcsFeature
+    public class DeathCausesFeature : IEcsFeature
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
-
+            systems.Add(new DieOnLandingWithSpecificVelocity());
         }
 
         public void SetupLateUpdateSystems(IEcsSystems systems)

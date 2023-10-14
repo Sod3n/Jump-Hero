@@ -1,6 +1,6 @@
-using AleVerDes.LeoEcsLiteZoo;
+using System;
 
-namespace DeathAssembly
+namespace DeathProcessAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
@@ -9,7 +9,9 @@ namespace DeathAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class KillRequestProvider : ConvertComponent<KillRequest>
+    [Serializable]
+    public struct KillRequest
     {
+
     }
 }

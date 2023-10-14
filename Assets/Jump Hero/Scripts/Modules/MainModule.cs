@@ -8,6 +8,7 @@ using MovementAssembly;
 using UtilsAssembly;
 using GenerationAssembly;
 using CameraFollowAssembly;
+using DeathCausesAssembly;
 
 internal class MainModule : IEcsModuleInstaller
 {
@@ -20,6 +21,7 @@ internal class MainModule : IEcsModuleInstaller
             .Add(new MovementFeature())
             .Add(new GenerationFeature())
             .Add(new CameraFollowFeature())
+            .Add(new DeathCausesFeature())
             ;
 
         return module;

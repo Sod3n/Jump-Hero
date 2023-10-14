@@ -1,6 +1,6 @@
 using System;
 
-namespace DeathAssembly
+namespace DeathCausesAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
@@ -10,8 +10,8 @@ namespace DeathAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
     [Serializable]
-    public struct KillRequest
+    public struct MinVelocityToKilledByLanding
     {
-
+        public float Value;
     }
 }

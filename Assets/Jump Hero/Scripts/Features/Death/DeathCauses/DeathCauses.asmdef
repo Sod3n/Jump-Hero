@@ -1,16 +1,10 @@
 {
-    "name": "MainAssembly",
+    "name": "DeathCausesAssembly",
     "rootNamespace": "",
     "references": [
         "GUID:e278bafe8b6736b4ab972b027ebe2322",
         "GUID:e59bf9fc7d5a44b18a819a92edd46163",
-        "GUID:e06a58708b83247ca9dc984644f5b40b",
-        "GUID:32d51ffd9c5ffcc4e936c59172dc62ec",
-        "GUID:42194173d576c854ea8d6b4f0833f8fe",
         "GUID:9783e8d305c39d741bb9b0aff0252129",
-        "GUID:0d4f471b76219da4da6234a02dd70214",
-        "GUID:eae5d96f0f1434943847eb88c98a5fa6",
-        "GUID:5917881450128014d908c7ebd02674da",
         "GUID:26454766097c1bb4783d8129dcdfdcba"
     ],
     "includePlatforms": [],
