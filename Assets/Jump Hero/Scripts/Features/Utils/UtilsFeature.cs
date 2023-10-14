@@ -17,7 +17,8 @@ namespace UtilsAssembly
         public void SetupUpdateSystems(IEcsSystems systems)
         {
             systems
-                .Add(new TrackOnGround())
+                .Add(new TrackLanding())
+                .Add(new TrackFalls())
                 .Add(new GenerateTapEvent())
                 .Add(new TrackLastTap())
 #if UNITY_EDITOR

@@ -12,6 +12,6 @@ namespace UtilsAssembly
     [Serializable]
     public struct LandedSelfEvent
     {
-
+        public float Velocity;
     }
 }

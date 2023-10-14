@@ -14,12 +14,10 @@ namespace UtilsAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
 
-    internal class TrackOnGround : IEcsRunSystem
+    internal class TrackLanding : IEcsRunSystem
     {
         EcsFilter _enterEvents;
-        EcsFilter _exitEvents;
         EcsPool<OnCollisionEnter2DEvent> _onCollisionEnter2DEvents;
-        EcsPool<OnCollisionExit2DEvent> _onCollisionExit2DEvents;
         EcsPool<OnGround> _onGrounds;
         EcsPool<GroundMarker> _groundMarkers;
         EcsPool<LandedSelfEvent> _landedSelfEvents;
@@ -56,26 +54,6 @@ namespace UtilsAssembly
                     ref var onGround = ref _onGrounds.Get(senderEntity);
                     if (!onGround.Value) _landedSelfEvents.Add(senderEntity);
                     onGround.Value = true;
-                }
-            }
-
-            if (_exitEvents is null) _exitEvents = _world.Filter<OnCollisionExit2DEvent>().End();
-            if (_exitEvents is null) return;
-
-            foreach (int exit in _exitEvents)
-            {
-                var onCollisionExitEvent = _onCollisionExit2DEvents.Get(exit);
-
-                if (onCollisionExitEvent.collider2D.gameObject.TryGetEntity(out var groundEntity))
-                {
-                    if (!_groundMarkers.Has(groundEntity)) continue;
-                }
-
-                if (onCollisionExitEvent.senderGameObject.TryGetEntity(out var senderEntity))
-                {
-                    if (!_onGrounds.Has(senderEntity)) continue;
-                    ref var onGround = ref _onGrounds.Get(senderEntity);
-                    onGround.Value = false;
                 }
             }
         }
