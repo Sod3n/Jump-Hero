@@ -15,13 +15,14 @@ namespace DeathProcessAssembly
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
-            systems
-                .Add(new RestartSceneOnKillRequest())
-                ;
+            
         }
 
         public void SetupLateUpdateSystems(IEcsSystems systems)
         {
+            systems
+                .Add(new RestartSceneOnKillRequest())
+                ;
         }
 
         public void SetupFixedUpdateSystems(IEcsSystems systems)

@@ -15,7 +15,10 @@ namespace DeathCausesAssembly
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
-            systems.Add(new DieOnLandingWithSpecificVelocity());
+            systems
+                .Add(new DieOnLandingWithSpecificVelocity())
+                .Add(new DieOnTouchSpike())
+                ;
         }
 
         public void SetupLateUpdateSystems(IEcsSystems systems)
