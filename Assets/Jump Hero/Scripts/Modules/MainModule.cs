@@ -10,6 +10,7 @@ using GenerationAssembly;
 using CameraFollowAssembly;
 using DeathCausesAssembly;
 using MovementByPhysicsAssembly;
+using MovementByAIAssembly;
 
 internal class MainModule : IEcsModuleInstaller
 {
@@ -21,6 +22,7 @@ internal class MainModule : IEcsModuleInstaller
             .Add(new UtilsFeature())
             .Add(new MovementByInputFeature())
             .Add(new MovementByPhysicsFeature())
+            .Add(new MovementByAIFeature())
             .Add(new GenerationFeature())
             .Add(new CameraFollowFeature())
             .Add(new DeathCausesFeature())
