@@ -41,9 +41,8 @@ namespace MovementAssembly
 
                 if (!onGround) continue;
 
-                momentum.ResetCurrentTime -= Time.fixedDeltaTime;
-
                 if(momentum.ResetCurrentTime <= 0) momentum.Value = 0;
+                else momentum.ResetCurrentTime -= Time.fixedDeltaTime;
             }
         }
     }

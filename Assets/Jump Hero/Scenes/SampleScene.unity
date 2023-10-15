@@ -368,11 +368,11 @@ GameObject:
   - component: {fileID: 1110688795}
   - component: {fileID: 1110688794}
   - component: {fileID: 1110688793}
-  - component: {fileID: 1110688792}
   - component: {fileID: 1110688791}
   - component: {fileID: 1110688790}
   - component: {fileID: 1110688789}
   - component: {fileID: 1110688788}
+  - component: {fileID: 1110688797}
   m_Layer: 0
   m_Name: Rigidbody2D
   m_TagString: Untagged
@@ -460,20 +460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26314793eec48849181452b2f6cc9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1110688792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110688786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f74a982440259e4c950c1eaa91b9dfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Value:
-    Value: 0
 --- !u!114 &1110688793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,12 +519,26 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.7
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1110688797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110688786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9432d153a8d6a874b8822e70ce9ddd00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value:
+    Value: 0
 --- !u!1 &1336542018
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value:
-    IncreaseRate: 1
+    IncreaseRate: 1.2
     ResetTime: 1
 --- !u!114 &1390127868
 MonoBehaviour:
@@ -793,7 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value:
-    Value: 7
+    Value: 10
 --- !u!114 &1390127870
 MonoBehaviour:
   m_ObjectHideFlags: 0

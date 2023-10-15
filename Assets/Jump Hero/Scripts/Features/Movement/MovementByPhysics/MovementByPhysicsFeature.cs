@@ -18,7 +18,6 @@ namespace MovementByPhysicsAssembly
             systems
                 .Add(new TrackLanding())
                 .Add(new TrackFalls())
-                .Add(new GenerateOnGroundCollisionEvent())
                 ;
         }
 

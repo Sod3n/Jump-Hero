@@ -11,7 +11,7 @@ namespace MovementAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
     #endif
-    public class MovementFeature : IEcsFeature
+    public class MovementByInputFeature : IEcsFeature
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {

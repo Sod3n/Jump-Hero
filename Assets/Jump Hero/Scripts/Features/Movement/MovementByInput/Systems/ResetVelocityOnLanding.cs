@@ -19,7 +19,6 @@ namespace MovementAssembly
     {
         EcsFilter _entities;
         EcsPool<Rigidbody2DRef> _rigidbody2DRefs;
-        EcsPool<LandedSelfEvent> _landedSelfEvents;
         EcsWorld _world;
 
         public void Init(IEcsSystems systems)
@@ -27,7 +26,6 @@ namespace MovementAssembly
             _world = systems.GetWorld();
 
             _rigidbody2DRefs = _world.GetPool<Rigidbody2DRef>();
-            _landedSelfEvents = _world.GetPool<LandedSelfEvent>();
         }
         public void Run(IEcsSystems systems)
         {

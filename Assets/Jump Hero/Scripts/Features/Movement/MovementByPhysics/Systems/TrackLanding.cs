@@ -51,8 +51,14 @@ namespace MovementByPhysicsAssembly
                 if (onCollisionEnterEvent.senderGameObject.TryGetEntity(out var senderEntity))
                 {
                     if (!_onGrounds.Has(senderEntity)) continue;
+
                     ref var onGround = ref _onGrounds.Get(senderEntity);
-                    if (!onGround.Value) _landedSelfEvents.Add(senderEntity);
+
+                    if (!onGround.Value)
+                        _landedSelfEvents.Add(senderEntity) = new LandedSelfEvent
+                        {
+                            Velocity = onCollisionEnterEvent.relativeVelocity
+                        };
                     onGround.Value = true;
                 }
             }

@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace MovementByPhysicsAssembly
 {
@@ -12,6 +13,9 @@ namespace MovementByPhysicsAssembly
     [Serializable]
     public struct LandedSelfEvent
     {
-        public float Velocity;
+        /// <summary>
+        /// Velocity of rigidbody2D with which its landed on surface.
+        /// </summary>
+        public Vector2 Velocity;
     }
 }

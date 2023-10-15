@@ -18,7 +18,7 @@ namespace DeathCausesAssembly
     internal class DieOnLandingWithSpecificVelocity : IEcsRunSystem
     {
         EcsFilter _entities;
-        EcsPool<Rigidbody2DRef> _rigidbody2DRefs;
+        EcsPool<LandedSelfEvent> _landedSelfEvents;
         EcsPool<KillRequest> _killRequests;
         EcsPool<MinVelocityToKilledByLanding> _minVelocityToKilledByLanding;
         EcsWorld _world;
@@ -27,20 +27,22 @@ namespace DeathCausesAssembly
         {
             _world = systems.GetWorld();
 
-            _rigidbody2DRefs = _world.GetPool<Rigidbody2DRef>();
+            _landedSelfEvents = _world.GetPool<LandedSelfEvent>();
             _killRequests = _world.GetPool<KillRequest>();
             _minVelocityToKilledByLanding = _world.GetPool<MinVelocityToKilledByLanding>();
         }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<Rigidbody2DRef>().Inc<LandedSelfEvent>().Inc<MinVelocityToKilledByLanding>().End();
+            if (_entities is null) _entities = _world.Filter<LandedSelfEvent>().Inc<MinVelocityToKilledByLanding>().End();
             if (_entities is null) return;
 
             foreach (int entity in _entities)
             {
-                var body = _rigidbody2DRefs.Get(entity).Value;
+                var landingVelocity = _landedSelfEvents.Get(entity).Velocity;
                 var minVelocity = _minVelocityToKilledByLanding.Get(entity).Value;
-                if (body.velocity.magnitude >= minVelocity) _killRequests.Add(entity);
+
+                if (landingVelocity.magnitude >= minVelocity && !_killRequests.Has(entity)) 
+                    _killRequests.Add(entity);
             }
         }
     }
