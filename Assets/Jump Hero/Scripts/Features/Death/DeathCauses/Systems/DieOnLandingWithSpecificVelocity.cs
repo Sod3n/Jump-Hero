@@ -3,6 +3,7 @@ using DeathProcessAssembly;
 using Leopotam.EcsLite;
 using MovementByPhysicsAssembly;
 using System.ComponentModel;
+using UnityEngine;
 using UtilsAssembly;
 
 namespace DeathCausesAssembly
