@@ -14,11 +14,11 @@ namespace DeathCausesAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
 
-    internal class DieOnTouchSpike : IEcsRunSystem
+    internal class DieOnTouchDamageZone : IEcsRunSystem
     {
         EcsFilter _entities;
         EcsPool<OnCollisionEnter2DEvent> _onCollisionEnter2DEvents;
-        EcsPool<SpikeMarker> _spikeMarkers;
+        EcsPool<DamageZoneMarker> _damageZones;
         EcsPool<KillRequest> _killRequests;
         EcsWorld _world;
 
@@ -27,7 +27,7 @@ namespace DeathCausesAssembly
             _world = systems.GetWorld();
 
             _onCollisionEnter2DEvents = _world.GetPool<OnCollisionEnter2DEvent>();
-            _spikeMarkers = _world.GetPool<SpikeMarker>();
+            _damageZones = _world.GetPool<DamageZoneMarker>();
             _killRequests = _world.GetPool<KillRequest>();
         }
         public void Run(IEcsSystems systems)
@@ -43,7 +43,7 @@ namespace DeathCausesAssembly
 
                 if(onCollisionEnterEvent.collider2D.gameObject.TryGetEntity(out int collisionEntity))
                 {
-                    if(_spikeMarkers.Has(collisionEntity))
+                    if(_damageZones.Has(collisionEntity))
                         _killRequests.Add(entity);
                 }
             }

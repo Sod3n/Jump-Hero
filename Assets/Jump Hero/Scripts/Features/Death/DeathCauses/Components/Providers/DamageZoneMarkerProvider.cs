@@ -9,7 +9,7 @@ namespace DeathCausesAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class SpikeMarkerProvider : ConvertComponent<SpikeMarker>
+    public class DamageZoneMarkerProvider : ConvertComponent<DamageZoneMarker>
     {
     }
 }

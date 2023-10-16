@@ -10,7 +10,7 @@ namespace DeathCausesAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
     [Serializable]
-    public struct SpikeMarker
+    public struct DamageZoneMarker
     {
 
     }

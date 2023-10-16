@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4370203143237704848}
   - component: {fileID: 2615873274317689316}
   - component: {fileID: 2439815879258233877}
-  - component: {fileID: 5085502963035986563}
   - component: {fileID: 8074919677293048510}
   - component: {fileID: 1459561479793544550}
   m_Layer: 0
@@ -32,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8614234514827605723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.1132, y: 3.0864143, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +83,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 0.5, y: 0.16}
+  m_Size: {x: 1, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -122,18 +121,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00060632825, y: 0}
+  m_Offset: {x: 0.00053572655, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 0.5, y: 0.16}
+    newSize: {x: 1, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5010592, y: 0.16}
+  m_Size: {x: 1.0013833, y: 0.16}
   m_EdgeRadius: 0
 --- !u!114 &2439815879258233877
 MonoBehaviour:
@@ -149,22 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _convertTime: 0
   _convertMode: 0
-  _collectMode: 0
+  _collectMode: 1
   _destroyEntityWithGameObject: 0
---- !u!114 &5085502963035986563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8614234514827605723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7262f576a31df674a85569224d6994d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Value:
-    Value: 40
 --- !u!114 &8074919677293048510
 MonoBehaviour:
   m_ObjectHideFlags: 0

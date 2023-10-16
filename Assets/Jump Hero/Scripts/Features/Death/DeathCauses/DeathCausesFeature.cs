@@ -17,7 +17,7 @@ namespace DeathCausesAssembly
         {
             systems
                 .Add(new DieOnLandingWithSpecificVelocity())
-                .Add(new DieOnTouchSpike())
+                .Add(new DieOnTouchDamageZone())
                 ;
         }
 

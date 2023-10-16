@@ -519,7 +519,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: f1eeeff9c3d6aea44b086c29c24c0736, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 100
+  m_AssetsPPU: 32
   m_RefResolutionX: 1440
   m_RefResolutionY: 2960
   m_UpscaleRT: 0
@@ -633,7 +633,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336542018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.16939417, y: 0.75053114, z: -10}
+  m_LocalPosition: {x: 0.16939417, y: -2.4, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value:
-    IncreaseRate: 1.2
+    IncreaseRate: 3.6
     ResetTime: 1
 --- !u!114 &1390127868
 MonoBehaviour:
@@ -793,7 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value:
-    Value: 10
+    Value: 25
 --- !u!114 &1390127870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,8 +930,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value:
-    GenerationSize: {x: 30, y: 30}
-    SetupSize: {x: 5, y: 5}
+    GenerationSize: {x: 100, y: 100}
+    SetupSize: {x: 20, y: 20}
     Prefabs:
     - {fileID: 527354629894210949, guid: 6ec4d3f7bf281be42b249c03866d7c28, type: 3}
 --- !u!114 &1665630906
@@ -975,8 +975,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998779952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.94, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalPosition: {x: 0.043, y: -2.914, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1110688787}
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value:
-    Value: 15
+    Value: 45
 --- !u!114 &2001143139
 MonoBehaviour:
   m_ObjectHideFlags: 0
