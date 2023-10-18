@@ -2,6 +2,7 @@ using AleVerDes.LeoEcsLiteZoo;
 using LeoEcsPhysics;
 using Leopotam.EcsLite;
 using System.ComponentModel;
+using UnityEngine;
 
 namespace MovementByPhysicsAssembly
 {

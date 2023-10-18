@@ -2,7 +2,7 @@
 using Leopotam.EcsLite;
 
 
-namespace DeathProcessAssembly
+namespace ReviveCausesAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
@@ -11,20 +11,17 @@ namespace DeathProcessAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class DeathProcessFeature : IEcsFeature
+    public class ReviveCausesFeature : IEcsFeature
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
-            
+            systems
+                .Add(new AddReviveBlessingOnTrigger())
+                ;
         }
 
         public void SetupLateUpdateSystems(IEcsSystems systems)
         {
-            systems
-                .Add(new FullfillReviveBlessing())
-                .Add(new RestartSceneOnKillRequest())
-                .DelHere<KillRequest>()
-                ;
         }
 
         public void SetupFixedUpdateSystems(IEcsSystems systems)

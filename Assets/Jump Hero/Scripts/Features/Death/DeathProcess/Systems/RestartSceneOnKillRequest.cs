@@ -17,6 +17,7 @@ namespace DeathProcessAssembly
     {
         EcsFilter _entities;
         EcsPool<KillRequest> _killRequests;
+        EcsPool<ReviveBlessing> _blessings;
         EcsWorld _world;
 
         public void Init(IEcsSystems systems)
@@ -27,12 +28,11 @@ namespace DeathProcessAssembly
         }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<KillRequest>().End();
+            if (_entities is null) _entities = _world.Filter<KillRequest>().Exc<ReviveBlessing>().End();
             if (_entities is null) return;
 
             foreach (int entity in _entities)
             {
-                _killRequests.Del(entity);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }

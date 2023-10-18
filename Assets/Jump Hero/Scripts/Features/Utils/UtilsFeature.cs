@@ -32,6 +32,7 @@ namespace UtilsAssembly
             systems
                 .DelHere<OnCollisionEnter2DEvent>()
                 .DelHere<OnCollisionExit2DEvent>()
+                .DelHere<OnTriggerEnter2DEvent>()
                 .DelHere<TapDownSelfEvent>()
                 .DelHere<TapUpSelfEvent>()
                 ;

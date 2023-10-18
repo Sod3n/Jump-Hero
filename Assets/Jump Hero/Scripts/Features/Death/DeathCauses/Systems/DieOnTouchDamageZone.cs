@@ -41,11 +41,13 @@ namespace DeathCausesAssembly
 
                 if (!onCollisionEnterEvent.firstContactPoint2D.enabled) continue; //collider effector working so skip
 
-                if(onCollisionEnterEvent.collider2D.gameObject.TryGetEntity(out int collisionEntity))
-                {
-                    if(_damageZones.Has(collisionEntity))
-                        _killRequests.Add(entity);
-                }
+                int collisionEntity;
+                int senderEntity;
+                if (!onCollisionEnterEvent.collider2D.gameObject.TryGetEntity(out collisionEntity)) continue;
+                if (!onCollisionEnterEvent.senderGameObject.TryGetEntity(out senderEntity)) continue;
+
+                if (_damageZones.Has(collisionEntity))
+                        _killRequests.Add(senderEntity);
             }
         }
     }

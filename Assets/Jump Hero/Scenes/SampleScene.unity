@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 1110688789}
   - component: {fileID: 1110688788}
   - component: {fileID: 1110688797}
+  - component: {fileID: 1110688798}
   m_Layer: 0
   m_Name: Rigidbody2D
   m_TagString: Untagged
@@ -539,6 +540,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Value:
     Value: 0
+--- !u!114 &1110688798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110688786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d5071960684b97bcdb09d4072584ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1336542018
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value:
-    Value: 25
+    Value: 50
 --- !u!114 &1390127870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,7 +988,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998779952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.043, y: -2.914, z: 0}
+  m_LocalPosition: {x: 0.043, y: -1.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

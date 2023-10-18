@@ -12,6 +12,7 @@ using DeathCausesAssembly;
 using MovementByPhysicsAssembly;
 using MovementByAIAssembly;
 using DeathProcessAssembly;
+using ReviveCausesAssembly;
 
 internal class MainModule : IEcsModuleInstaller
 {
@@ -28,6 +29,7 @@ internal class MainModule : IEcsModuleInstaller
             .Add(new CameraFollowFeature())
             .Add(new DeathCausesFeature())
             .Add(new DeathProcessFeature())
+            .Add(new ReviveCausesFeature())
             ;
 
         return module;
