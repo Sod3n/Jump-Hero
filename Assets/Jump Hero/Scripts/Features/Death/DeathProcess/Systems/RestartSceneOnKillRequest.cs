@@ -22,9 +22,6 @@ namespace DeathProcessAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _killRequests = _world.GetPool<KillRequest>();
         }
         public void Run(IEcsSystems systems)
         {

@@ -24,10 +24,7 @@ namespace MovementByPhysicsAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
 
-            _onGrounds = _world.GetPool<OnGround>();
-            _groundMarkers = _world.GetPool<GroundMarker>();
         }
         public void Run(IEcsSystems systems)
         {

@@ -23,11 +23,6 @@ namespace MovementByAIAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _patrolPoints = _world.GetPool<PatrolPoints>();
-            _rigidbody2DRefs = _world.GetPool<Rigidbody2DRef>();
-            _movementSpeeds = _world.GetPool<MovementSpeed>();
         }
         public void Run(IEcsSystems systems)
         {

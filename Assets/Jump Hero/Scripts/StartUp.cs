@@ -18,6 +18,12 @@ public class StartUp : MonoBehaviour
         EcsPhysicsEvents.ecsWorld = _world;
         _ecsManager = new EcsManager();
         _ecsManager.SetWorld(_world);
+
+        foreach (var injectionContext in _injectionContexts)
+        {
+            injectionContext.InitInjector();
+            _ecsManager.AddInjector(injectionContext.GetInjector());
+        }
     }
 
     private void Start()

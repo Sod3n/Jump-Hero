@@ -21,10 +21,7 @@ namespace MovementAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
 
-            _forceCommands = _world.GetPool<ForceCommand>();
-            _momentums = _world.GetPool<Momentum>();
         }
         public void Run(IEcsSystems systems)
         {

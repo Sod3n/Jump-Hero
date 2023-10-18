@@ -23,11 +23,6 @@ namespace GenerationAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _generationSettings = _world.GetPool<GenerationSettings>();
-            _generationRectangles = _world.GetPool<GenerationRectangle>();
-            _transformRefs = _world.GetPool<TransformRef>();
         }
         public void Run(IEcsSystems systems)
         {

@@ -25,12 +25,7 @@ namespace MovementByPhysicsAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
 
-            _onCollisionEnter2DEvents = _world.GetPool<OnCollisionEnter2DEvent>();
-            _onGrounds = _world.GetPool<OnGround>();
-            _groundMarkers = _world.GetPool<GroundMarker>();
-            _landedSelfEvents = _world.GetPool<LandedSelfEvent>();
         }
         public void Run(IEcsSystems systems)
         {

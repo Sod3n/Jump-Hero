@@ -21,10 +21,6 @@ namespace MovementAssembly
 
         public void Init(IEcsSystems systems)
         {
-            EcsWorld world = systems.GetWorld();
-
-            _forces = world.GetPool<ForceCommand>();
-            _bodies = world.GetPool<Rigidbody2DRef>();
         }
         public void Run(IEcsSystems systems)
         {

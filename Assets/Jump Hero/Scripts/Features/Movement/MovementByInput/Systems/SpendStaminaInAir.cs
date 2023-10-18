@@ -23,10 +23,6 @@ namespace MovementAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _staminas = _world.GetPool<Stamina>();
-            _onGrounds = _world.GetPool<OnGround>();
         }
         public void Run(IEcsSystems systems)
         {
@@ -37,7 +33,7 @@ namespace MovementAssembly
             {
                 ref var stamina = ref _staminas.Get(entity);
                 var onGround = _onGrounds.Get(entity).Value;
-
+                
                 if (!onGround) stamina.CurrentValue -= Time.fixedDeltaTime;
             }
         }

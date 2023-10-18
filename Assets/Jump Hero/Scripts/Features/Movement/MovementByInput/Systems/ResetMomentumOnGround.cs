@@ -24,10 +24,6 @@ namespace MovementAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _momentums = _world.GetPool<Momentum>();
-            _onGrounds = _world.GetPool<OnGround>();
         }
         public void Run(IEcsSystems systems)
         {

@@ -17,16 +17,11 @@ namespace MovementAssembly
         {
             systems
                 .Add(new InputActionsToCommands())
-                .Add(new ApplyMomentumToForce())
-                .Add(new ForceCommandsHandler())
-                .Add(new TrackHeight())
-                .Add(new ResetVelocityOnLanding())
                 .Add(new ResetStaminaToZeroOnTapUp())
-                .Add(new ResetMomentumOnGround())
                 .Add(new ChangeMomentumOnTapUp())
                 .Add(new ResetStaminaOnGround())
-                .Add(new SpendStaminaInAir())
-                .DelHereEntityWith<ForceCommand>()
+                .Add(new ResetVelocityOnLanding())
+                .Add(new ResetMomentumOnGround())
                 ;
         }
 
@@ -36,6 +31,13 @@ namespace MovementAssembly
 
         public void SetupFixedUpdateSystems(IEcsSystems systems)
         {
+            systems
+                .Add(new ApplyMomentumToForce())
+                .Add(new ForceCommandsHandler())
+                .Add(new TrackHeight())
+                .Add(new SpendStaminaInAir())
+                .DelHereEntityWith<ForceCommand>()
+                ;
         }
 
         public void SetupInjector(IEcsInjector injector)

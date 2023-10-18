@@ -24,10 +24,7 @@ namespace GenerationAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
 
-            _chanceOfActivationSubElement = _world.GetPool<ChanceOfActivationSubElement>();
-            _gameObjectRefs = _world.GetPool<GameObjectRef>();
         }
         public void Run(IEcsSystems systems)
         {

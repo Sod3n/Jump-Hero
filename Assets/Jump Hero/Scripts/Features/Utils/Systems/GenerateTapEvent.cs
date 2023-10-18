@@ -23,11 +23,7 @@ namespace UtilsAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
 
-            _inputActions = _world.GetPool<InputActions>();
-            _tapDownSelfEvents = _world.GetPool<TapDownSelfEvent>();
-            _tapUpSelfEvents = _world.GetPool<TapUpSelfEvent>();
         }
         public void Run(IEcsSystems systems)
         {

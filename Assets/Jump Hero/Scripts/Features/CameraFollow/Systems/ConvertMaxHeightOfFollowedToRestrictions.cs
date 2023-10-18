@@ -23,11 +23,7 @@ namespace CameraFollowAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
 
-            _heightFollowRescrictions = _world.GetPool<HeightFollowRescriction>();
-            _transformForFollowsWithLerp = _world.GetPool<TransformForFollowWithLerp>();
-            _maxReachedHeights = _world.GetPool<MaxReachedHeight>();
         }
         public void Run(IEcsSystems systems)
         {

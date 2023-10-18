@@ -26,10 +26,6 @@ namespace MovementAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _targetsForFollowWithLerp = _world.GetPool<TransformForFollowWithLerp>();
-            _speedsOfFollow = _world.GetPool<SpeedOfFollow>();
         }
         public void Run(IEcsSystems systems)
         {

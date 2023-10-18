@@ -24,11 +24,7 @@ namespace DeathCausesAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
 
-            _onCollisionEnter2DEvents = _world.GetPool<OnCollisionEnter2DEvent>();
-            _damageZones = _world.GetPool<DamageZoneMarker>();
-            _killRequests = _world.GetPool<KillRequest>();
         }
         public void Run(IEcsSystems systems)
         {

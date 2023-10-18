@@ -20,9 +20,7 @@ namespace MovementAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
 
-            _momentums = _world.GetPool<Momentum>();
         }
         public void Run(IEcsSystems systems)
         {

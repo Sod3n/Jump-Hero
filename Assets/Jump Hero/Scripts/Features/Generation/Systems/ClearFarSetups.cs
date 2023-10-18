@@ -21,9 +21,6 @@ namespace GenerationAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _generationSettings = _world.GetPool<GenerationSettings>();
         }
         public void Run(IEcsSystems systems)
         {

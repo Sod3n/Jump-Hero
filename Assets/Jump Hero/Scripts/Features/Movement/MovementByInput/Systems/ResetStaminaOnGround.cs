@@ -23,10 +23,6 @@ namespace MovementAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _staminas = _world.GetPool<Stamina>();
-            _onGrounds = _world.GetPool<OnGround>();
         }
         public void Run(IEcsSystems systems)
         {

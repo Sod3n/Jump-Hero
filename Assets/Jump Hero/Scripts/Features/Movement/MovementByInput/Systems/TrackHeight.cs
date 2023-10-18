@@ -22,10 +22,6 @@ namespace MovementAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _maxReachedHeights = _world.GetPool<MaxReachedHeight>();
-            _transformRefs = _world.GetPool<TransformRef>();
         }
         public void Run(IEcsSystems systems)
         {

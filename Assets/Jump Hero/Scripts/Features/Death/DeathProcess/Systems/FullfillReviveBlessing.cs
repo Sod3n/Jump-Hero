@@ -24,12 +24,6 @@ namespace DeathProcessAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _reviveBlessings = _world.GetPool<ReviveBlessing>();
-            _killRequests = _world.GetPool<KillRequest>();
-            _transformRefs = _world.GetPool<TransformRef>();
-            _rigidbody2DRefs = _world.GetPool<Rigidbody2DRef>();
         }
         public void Run(IEcsSystems systems)
         {

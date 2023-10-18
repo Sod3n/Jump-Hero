@@ -776,7 +776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value:
-    IncreaseRate: 3.6
+    IncreaseRate: 1.8
     ResetTime: 1
 --- !u!114 &1390127868
 MonoBehaviour:
@@ -792,7 +792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Value:
     CurrentValue: 0
-    MaxValue: 2
+    MaxValue: 0.7
 --- !u!114 &1390127869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -806,7 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value:
-    Value: 50
+    Value: 25
 --- !u!114 &1390127870
 MonoBehaviour:
   m_ObjectHideFlags: 0

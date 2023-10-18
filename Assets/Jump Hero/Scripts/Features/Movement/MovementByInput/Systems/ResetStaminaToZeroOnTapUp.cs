@@ -21,10 +21,6 @@ namespace MovementAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _tapUpSelfEvents = _world.GetPool<TapUpSelfEvent>();
-            _staminas = _world.GetPool<Stamina>();
         }
         public void Run(IEcsSystems systems)
         {

@@ -22,9 +22,6 @@ namespace GenerationAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _noiseSettings = _world.GetPool<NoiseSettings>();
             _noiseSeed = Random.Range(float.MinValue, float.MaxValue/4);
         }
         public void Run(IEcsSystems systems)

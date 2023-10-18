@@ -20,9 +20,7 @@ namespace CameraFollowAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
 
-            _speedsOfFollow = _world.GetPool<SpeedOfFollow>();
         }
         public void Run(IEcsSystems systems)
         {

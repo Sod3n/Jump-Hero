@@ -26,11 +26,6 @@ namespace DeathCausesAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _landedSelfEvents = _world.GetPool<LandedSelfEvent>();
-            _killRequests = _world.GetPool<KillRequest>();
-            _minVelocityToKilledByLanding = _world.GetPool<MinVelocityToKilledByLanding>();
         }
         public void Run(IEcsSystems systems)
         {

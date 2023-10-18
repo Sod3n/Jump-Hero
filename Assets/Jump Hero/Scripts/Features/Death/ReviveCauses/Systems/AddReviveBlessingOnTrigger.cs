@@ -4,6 +4,9 @@ using LeoEcsPhysics;
 using DeathProcessAssembly;
 using AleVerDes.LeoEcsLiteZoo;
 using UnityEngine;
+using System.Linq;
+using Codice.CM.Client.Differences;
+using UtilsAssembly;
 
 namespace ReviveCausesAssembly
 {
@@ -26,12 +29,6 @@ namespace ReviveCausesAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
-
-            _triggerEnterEvents = _world.GetPool<OnTriggerEnter2DEvent>();
-            _reviveBlessings = _world.GetPool<ReviveBlessing>();
-            _reviveStatueMarkers = _world.GetPool<ReviveStatueMarker>();
-            _transformRefs = _world.GetPool<TransformRef>();
         }
         public void Run(IEcsSystems systems)
         {

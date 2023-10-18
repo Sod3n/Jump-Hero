@@ -26,12 +26,7 @@ namespace MovementAssembly
 
         public void Init(IEcsSystems systems)
         {
-            EcsWorld world = systems.GetWorld();
-            _playerActions = world.GetPool<InputActions>();
-            _powersOfForce = world.GetPool<PowerOfForce>();
-            _forces = world.GetPool<ForceCommand>();
-            _stamina = world.GetPool<Stamina>();
-            _momentums = world.GetPool<Momentum>();
+
         }
         public void Run(IEcsSystems systems)
         {
@@ -66,8 +61,6 @@ namespace MovementAssembly
                 force.PowerOfForce.Value *= Time.fixedDeltaTime * 25;
                 force.TargetOfForce.Value = world.PackEntity(entity);
                 force.Direction2D.Value = TapPositionToDirection(dir);
-
-                
             }
         }
 

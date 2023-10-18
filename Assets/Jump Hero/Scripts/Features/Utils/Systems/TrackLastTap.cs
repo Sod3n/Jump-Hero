@@ -20,9 +20,7 @@ namespace UtilsAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
 
-            _inputActions = _world.GetPool<InputActions>();
         }
         public void Run(IEcsSystems systems)
         {

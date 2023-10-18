@@ -24,12 +24,7 @@ namespace GenerationAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _world = systems.GetWorld();
 
-            _genSettings = _world.GetPool<GenerationSettings>();
-            _generationRectangles = _world.GetPool<GenerationRectangle>();
-            _positions2D = _world.GetPool<Position2D>();
-            _owners = _world.GetPool<Owner>();
         }
         public void Run(IEcsSystems systems)
         {
