@@ -11,7 +11,7 @@ namespace CameraFollowAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class CameraFollowFeature : IEcsFeature
+    public class CameraFollowFeature : IEcsUpdateFeature
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
@@ -21,19 +21,6 @@ namespace CameraFollowAssembly
                 .Add(new LerpSpeedOfFollow())
                 //.Add(new ChangeFollowSpeedByRestrictions())
                 ;
-        }
-
-        public void SetupLateUpdateSystems(IEcsSystems systems)
-        {
-        }
-
-        public void SetupFixedUpdateSystems(IEcsSystems systems)
-        {
-        }
-
-        public void SetupInjector(IEcsInjector injector)
-        {
-
         }
     }
 }

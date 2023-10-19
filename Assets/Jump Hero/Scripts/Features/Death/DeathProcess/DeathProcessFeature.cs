@@ -11,13 +11,8 @@ namespace DeathProcessAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class DeathProcessFeature : IEcsFeature
+    public class DeathProcessFeature : IEcsLateUpdateFeature
     {
-        public void SetupUpdateSystems(IEcsSystems systems)
-        {
-            
-        }
-
         public void SetupLateUpdateSystems(IEcsSystems systems)
         {
             systems
@@ -25,15 +20,6 @@ namespace DeathProcessAssembly
                 .Add(new RestartSceneOnKillRequest())
                 .DelHere<KillRequest>()
                 ;
-        }
-
-        public void SetupFixedUpdateSystems(IEcsSystems systems)
-        {
-        }
-
-        public void SetupInjector(IEcsInjector injector)
-        {
-
         }
     }
 }

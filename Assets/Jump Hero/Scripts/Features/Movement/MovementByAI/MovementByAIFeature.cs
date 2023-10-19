@@ -11,27 +11,13 @@ namespace MovementByAIAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class MovementByAIFeature : IEcsFeature
+    public class MovementByAIFeature : IEcsFixedUpdateFeature
     {
-        public void SetupUpdateSystems(IEcsSystems systems)
-        {
-            
-        }
-
-        public void SetupLateUpdateSystems(IEcsSystems systems)
-        {
-        }
-
         public void SetupFixedUpdateSystems(IEcsSystems systems)
         {
             systems
                 .Add(new MoveBetweenPatrolPoints())
                 ;
-        }
-
-        public void SetupInjector(IEcsInjector injector)
-        {
-
         }
     }
 }

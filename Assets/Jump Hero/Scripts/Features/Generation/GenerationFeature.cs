@@ -11,7 +11,7 @@ namespace GenerationAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class GenerationFeature : IEcsFeature
+    public class GenerationFeature : IEcsUpdateFeature
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
@@ -24,19 +24,6 @@ namespace GenerationAssembly
                 .DelHere<ChanceOfActivationSubElement>()   
                 .DelHereEntityWith<GenerateSetupMarker>()
                 ;
-        }
-
-        public void SetupLateUpdateSystems(IEcsSystems systems)
-        {
-        }
-
-        public void SetupFixedUpdateSystems(IEcsSystems systems)
-        {
-        }
-
-        public void SetupInjector(IEcsInjector injector)
-        {
-
         }
     }
 }

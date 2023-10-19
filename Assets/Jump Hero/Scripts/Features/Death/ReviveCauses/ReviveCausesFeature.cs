@@ -11,26 +11,13 @@ namespace ReviveCausesAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class ReviveCausesFeature : IEcsFeature
+    public class ReviveCausesFeature : IEcsUpdateFeature
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
             systems
                 .Add(new AddReviveBlessingOnTrigger())
                 ;
-        }
-
-        public void SetupLateUpdateSystems(IEcsSystems systems)
-        {
-        }
-
-        public void SetupFixedUpdateSystems(IEcsSystems systems)
-        {
-        }
-
-        public void SetupInjector(IEcsInjector injector)
-        {
-
         }
     }
 }

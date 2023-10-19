@@ -12,7 +12,7 @@ namespace UtilsAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
     #endif
-    public class UtilsFeature : IEcsFeature
+    public class UtilsFeature : IEcsUpdateFeature, IEcsLateUpdateFeature
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
@@ -36,15 +36,6 @@ namespace UtilsAssembly
                 .DelHere<TapDownSelfEvent>()
                 .DelHere<TapUpSelfEvent>()
                 ;
-        }
-
-        public void SetupFixedUpdateSystems(IEcsSystems systems)
-        {
-        }
-
-        public void SetupInjector(IEcsInjector injector)
-        {
-
         }
     }
 }

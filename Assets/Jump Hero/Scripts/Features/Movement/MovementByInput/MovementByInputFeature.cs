@@ -11,7 +11,7 @@ namespace MovementAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
     #endif
-    public class MovementByInputFeature : IEcsFeature
+    public class MovementByInputFeature : IEcsUpdateFeature, IEcsFixedUpdateFeature
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
@@ -24,11 +24,6 @@ namespace MovementAssembly
                 .Add(new ResetMomentumOnGround())
                 ;
         }
-
-        public void SetupLateUpdateSystems(IEcsSystems systems)
-        {
-        }
-
         public void SetupFixedUpdateSystems(IEcsSystems systems)
         {
             systems
@@ -38,11 +33,6 @@ namespace MovementAssembly
                 .Add(new SpendStaminaInAir())
                 .DelHereEntityWith<ForceCommand>()
                 ;
-        }
-
-        public void SetupInjector(IEcsInjector injector)
-        {
-
         }
     }
 }

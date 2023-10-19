@@ -11,7 +11,7 @@ namespace DeathCausesAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class DeathCausesFeature : IEcsFeature
+    public class DeathCausesFeature : IEcsUpdateFeature
     {
         public void SetupUpdateSystems(IEcsSystems systems)
         {
@@ -19,19 +19,6 @@ namespace DeathCausesAssembly
                 .Add(new DieOnLandingWithSpecificVelocity())
                 .Add(new DieOnTouchDamageZone())
                 ;
-        }
-
-        public void SetupLateUpdateSystems(IEcsSystems systems)
-        {
-        }
-
-        public void SetupFixedUpdateSystems(IEcsSystems systems)
-        {
-        }
-
-        public void SetupInjector(IEcsInjector injector)
-        {
-
         }
     }
 }
