@@ -16,7 +16,6 @@ namespace MovementAssembly
         public void SetupUpdateSystems(IEcsSystems systems)
         {
             systems
-                .Add(new InputActionsToCommands())
                 .Add(new ResetStaminaToZeroOnTapUp())
                 .Add(new ChangeMomentumOnTapUp())
                 .Add(new ResetStaminaOnGround())
@@ -27,6 +26,7 @@ namespace MovementAssembly
         public void SetupFixedUpdateSystems(IEcsSystems systems)
         {
             systems
+                .Add(new InputActionsToCommands())
                 .Add(new ApplyMomentumToForce())
                 .Add(new ForceCommandsHandler())
                 .Add(new TrackHeight())

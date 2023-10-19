@@ -26,7 +26,7 @@ namespace MovementAssembly
             {
                 ref var forceCommand = ref _forceCommands.Get(entity);
                 var momentum = _momentums.Get(entity).Value;
-                forceCommand.PowerOfForce.Value += momentum * Time.fixedDeltaTime * 25;
+                forceCommand.PowerOfForce.Value += momentum * Time.fixedDeltaTime * 100;
             }
         }
     }

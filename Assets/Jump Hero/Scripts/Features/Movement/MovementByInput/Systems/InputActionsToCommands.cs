@@ -13,9 +13,6 @@ namespace MovementAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    /// <summary>
-    /// This System generate entities with ForceTarget component. For deleting this entities responsible another leoecszoo system "DelHere".
-    /// </summary>
     internal class InputActionsToCommands : IEcsRunSystem
     {
         EcsQuery<InputActions, PowerOfForce> _entities;
@@ -51,7 +48,7 @@ namespace MovementAssembly
                     _momentums.Add(e) = _momentums.Get(entity);
                 }
 
-                force.PowerOfForce.Value *= Time.fixedDeltaTime * 25;
+                force.PowerOfForce.Value *= Time.fixedDeltaTime * 100;
                 force.TargetOfForce.Value = _world.PackEntity(entity);
                 force.Direction2D.Value = TapPositionToDirection(dir);
             }
