@@ -25,7 +25,7 @@ namespace GenerationAssembly
         EcsPool<Position2D> _positions2D;
         EcsPool<GameObjectRef> _gameObjectRefs;
         EcsWorld _world;
-=
+
         public void Run(IEcsSystems systems)
         {
             foreach (int entity in _entities)
