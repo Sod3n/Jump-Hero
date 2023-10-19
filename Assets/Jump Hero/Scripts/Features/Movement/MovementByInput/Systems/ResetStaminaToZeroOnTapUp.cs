@@ -1,3 +1,4 @@
+using AleVerDes.LeoEcsLiteZoo;
 using Leopotam.EcsLite;
 using System.ComponentModel;
 using UtilsAssembly;
@@ -14,19 +15,13 @@ namespace MovementAssembly
 
     internal class ResetStaminaToZeroOnTapUp : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<TapUpSelfEvent, Stamina> _entities;
         EcsPool<TapUpSelfEvent> _tapUpSelfEvents;
         EcsPool<Stamina> _staminas;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<TapUpSelfEvent>().Inc<Stamina>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 ref var stamina = ref _staminas.Get(entity);

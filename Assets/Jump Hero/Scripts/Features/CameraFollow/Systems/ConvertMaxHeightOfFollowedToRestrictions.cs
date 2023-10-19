@@ -15,21 +15,14 @@ namespace CameraFollowAssembly
 
     internal class ConvertMaxHeightOfFollowedToRestrictions : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<HeightFollowRescriction, TransformForFollowWithLerp> _entities;
         EcsPool<HeightFollowRescriction> _heightFollowRescrictions;
         EcsPool<TransformForFollowWithLerp> _transformForFollowsWithLerp;
         EcsPool<MaxReachedHeight> _maxReachedHeights;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<HeightFollowRescriction>().Inc<TransformForFollowWithLerp>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 var transformForFollow = _transformForFollowsWithLerp.Get(entity).Value;

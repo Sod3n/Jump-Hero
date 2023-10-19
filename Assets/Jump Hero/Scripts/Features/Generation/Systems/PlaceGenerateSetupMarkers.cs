@@ -15,22 +15,15 @@ namespace GenerationAssembly
 
     internal class PlaceGenerateSetupMarkers : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<GenerationSettings, GenerationRectangle, NoiseSettings> _entities;
         EcsPool<GenerationSettings> _genSettings;
         EcsPool<GenerationRectangle> _generationRectangles;
         EcsPool<Position2D> _positions2D;
         EcsPool<Owner> _owners;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<GenerationSettings>().Inc<GenerationRectangle>().Inc<NoiseSettings>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 ref var genSettings = ref _genSettings.Get(entity);

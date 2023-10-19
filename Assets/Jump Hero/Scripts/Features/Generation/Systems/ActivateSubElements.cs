@@ -13,9 +13,9 @@ namespace GenerationAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
 
-    internal class ActivateSubElements : IEcsRunSystem
+    internal class ActivateSubElements : IEcsInitSystem, IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<ChanceOfActivationSubElement, GameObjectRef> _entities;
         int _noiseSettingsEntity;
         EcsPool<ChanceOfActivationSubElement> _chanceOfActivationSubElement;
         EcsPool<GameObjectRef> _gameObjectRefs;
@@ -24,14 +24,10 @@ namespace GenerationAssembly
 
         public void Init(IEcsSystems systems)
         {
-
+            _noiseSettingsEntity = _world.Filter<NoiseSettings>().Inc<SubElementsNoiseSettingsMarker>().End().GetFirstEntity<NoiseSettings>();
         }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<ChanceOfActivationSubElement>().Inc<GameObjectRef>().End();
-            if (_entities is null) return;
-            _noiseSettingsEntity = _world.Filter<NoiseSettings>().Inc<SubElementsNoiseSettingsMarker>().End().GetFirstEntity<NoiseSettings>();
-
             foreach (int entity in _entities)
             {
                 ref var chanceOfActivation = ref _chanceOfActivationSubElement.Get(entity);

@@ -15,21 +15,15 @@ namespace DeathProcessAssembly
 
     internal class FullfillReviveBlessing : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<ReviveBlessing, KillRequest, TransformRef> _entities;
         EcsPool<ReviveBlessing> _reviveBlessings;
         EcsPool<KillRequest> _killRequests;
         EcsPool<TransformRef> _transformRefs;
         EcsPool<Rigidbody2DRef> _rigidbody2DRefs;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<ReviveBlessing>().Inc<KillRequest>().Inc<TransformRef>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 

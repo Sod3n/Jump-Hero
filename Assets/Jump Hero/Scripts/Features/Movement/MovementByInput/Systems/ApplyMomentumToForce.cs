@@ -1,3 +1,4 @@
+using AleVerDes.LeoEcsLiteZoo;
 using Leopotam.EcsLite;
 using System.ComponentModel;
 using UnityEngine;
@@ -14,20 +15,13 @@ namespace MovementAssembly
 
     internal class ApplyMomentumToForce : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<ForceCommand, Momentum> _entities;
         EcsPool<ForceCommand> _forceCommands;
         EcsPool<Momentum> _momentums;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<ForceCommand>().Inc<Momentum>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 ref var forceCommand = ref _forceCommands.Get(entity);

@@ -17,18 +17,12 @@ namespace MovementAssembly
 
     internal class ResetVelocityOnLanding : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<Rigidbody2DRef, LandedSelfEvent> _entities;
         EcsPool<Rigidbody2DRef> _rigidbody2DRefs;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<Rigidbody2DRef>().Inc<LandedSelfEvent>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 ref var body = ref _rigidbody2DRefs.Get(entity);

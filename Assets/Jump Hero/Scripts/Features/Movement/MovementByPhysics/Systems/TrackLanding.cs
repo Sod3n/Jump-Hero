@@ -16,22 +16,15 @@ namespace MovementByPhysicsAssembly
 
     internal class TrackLanding : IEcsRunSystem
     {
-        EcsFilter _enterEvents;
+        EcsQuery<OnCollisionEnter2DEvent> _enterEvents;
         EcsPool<OnCollisionEnter2DEvent> _onCollisionEnter2DEvents;
         EcsPool<OnGround> _onGrounds;
         EcsPool<GroundMarker> _groundMarkers;
         EcsPool<LandedSelfEvent> _landedSelfEvents;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_enterEvents is null) _enterEvents = _world.Filter<OnCollisionEnter2DEvent>().End();
-            if (_enterEvents is null) return;
-
             foreach (int enter in _enterEvents)
             {
                 var onCollisionEnterEvent = _onCollisionEnter2DEvents.Get(enter);

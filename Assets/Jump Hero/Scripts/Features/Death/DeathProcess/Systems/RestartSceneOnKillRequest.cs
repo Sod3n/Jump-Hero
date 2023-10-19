@@ -1,3 +1,4 @@
+using AleVerDes.LeoEcsLiteZoo;
 using Leopotam.EcsLite;
 using System.ComponentModel;
 using UnityEngine;
@@ -15,19 +16,13 @@ namespace DeathProcessAssembly
 
     internal class RestartSceneOnKillRequest : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<KillRequest>.Exc<ReviveBlessing> _entities;
         EcsPool<KillRequest> _killRequests;
         EcsPool<ReviveBlessing> _blessings;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<KillRequest>().Exc<ReviveBlessing>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -15,20 +15,14 @@ namespace MovementByAIAssembly
 
     internal class MoveBetweenPatrolPoints : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<PatrolPoints, Rigidbody2DRef, MovementSpeed> _entities;
         EcsPool<PatrolPoints> _patrolPoints;
         EcsPool<Rigidbody2DRef> _rigidbody2DRefs;
         EcsPool<MovementSpeed> _movementSpeeds;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<PatrolPoints>().Inc<Rigidbody2DRef>().Inc<MovementSpeed>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 ref var patrolPoints = ref _patrolPoints.Get(entity);

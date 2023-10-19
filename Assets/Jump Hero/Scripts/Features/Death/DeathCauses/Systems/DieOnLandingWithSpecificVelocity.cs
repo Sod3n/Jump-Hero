@@ -18,20 +18,14 @@ namespace DeathCausesAssembly
 
     internal class DieOnLandingWithSpecificVelocity : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<LandedSelfEvent, MinVelocityToKilledByLanding> _entities;
         EcsPool<LandedSelfEvent> _landedSelfEvents;
         EcsPool<KillRequest> _killRequests;
         EcsPool<MinVelocityToKilledByLanding> _minVelocityToKilledByLanding;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<LandedSelfEvent>().Inc<MinVelocityToKilledByLanding>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 var landingVelocity = _landedSelfEvents.Get(entity).Velocity;

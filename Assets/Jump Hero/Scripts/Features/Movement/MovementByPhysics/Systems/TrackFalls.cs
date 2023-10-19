@@ -16,21 +16,14 @@ namespace MovementByPhysicsAssembly
 
     internal class TrackFalls : IEcsRunSystem
     {
-        EcsFilter _exitEvents;
+        EcsQuery<OnCollisionExit2DEvent> _exitEvents;
         EcsPool<OnCollisionExit2DEvent> _onCollisionExit2DEvents;
         EcsPool<OnGround> _onGrounds;
         EcsPool<GroundMarker> _groundMarkers;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_exitEvents is null) _exitEvents = _world.Filter<OnCollisionExit2DEvent>().End();
-            if (_exitEvents is null) return;
-
             foreach (int exit in _exitEvents)
             {
                 var onCollisionExitEvent = _onCollisionExit2DEvents.Get(exit);

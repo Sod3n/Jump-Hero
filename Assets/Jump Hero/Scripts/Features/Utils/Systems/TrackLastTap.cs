@@ -1,3 +1,4 @@
+using AleVerDes.LeoEcsLiteZoo;
 using Leopotam.EcsLite;
 using System.ComponentModel;
 using UnityEngine;
@@ -14,19 +15,12 @@ namespace UtilsAssembly
 
     internal class TrackLastTap : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<InputActions> _entities;
         EcsPool<InputActions> _inputActions;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<InputActions>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 ref var inputActions = ref _inputActions.Get(entity);

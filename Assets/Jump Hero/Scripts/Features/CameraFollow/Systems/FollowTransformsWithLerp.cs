@@ -17,21 +17,14 @@ namespace MovementAssembly
 
     internal class FollowTransformsWithLerp : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<TransformForFollowWithLerp, SpeedOfFollow> _entities;
         EcsPool<TransformForFollowWithLerp> _targetsForFollowWithLerp;
         EcsPool<TransformRef> _transformRefs;
         EcsPool<SpeedOfFollow> _speedsOfFollow;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<TransformForFollowWithLerp>().Inc<SpeedOfFollow>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 ref var transform = ref _transformRefs.Get(entity).Value;

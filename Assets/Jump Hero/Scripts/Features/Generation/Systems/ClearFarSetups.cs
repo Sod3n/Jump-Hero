@@ -1,3 +1,4 @@
+using AleVerDes.LeoEcsLiteZoo;
 using Leopotam.EcsLite;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,24 +16,16 @@ namespace GenerationAssembly
 
     internal class ClearFarSetups : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<GenerationSettings> _entities;
         EcsPool<GenerationSettings> _generationSettings;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<GenerationSettings>().End();
-            if (_entities is null) return;
-
             Dictionary<Vector2, bool> isVector2Nessesary = new Dictionary<Vector2, bool>();
             foreach (int entity in _entities)
             {
                 var generationSettings = _generationSettings.Get(entity);
-
-
             }
         }
     }

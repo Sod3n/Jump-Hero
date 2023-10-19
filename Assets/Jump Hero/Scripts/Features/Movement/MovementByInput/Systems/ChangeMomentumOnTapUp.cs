@@ -1,3 +1,4 @@
+using AleVerDes.LeoEcsLiteZoo;
 using Leopotam.EcsLite;
 using System.ComponentModel;
 using UtilsAssembly;
@@ -14,19 +15,12 @@ namespace MovementAssembly
 
     internal class ChangeMomentumOnTapUp : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<Momentum, TapUpSelfEvent> _entities;
         EcsPool<Momentum> _momentums;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<Momentum>().Inc<TapUpSelfEvent>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 ref var momentum = ref _momentums.Get(entity);

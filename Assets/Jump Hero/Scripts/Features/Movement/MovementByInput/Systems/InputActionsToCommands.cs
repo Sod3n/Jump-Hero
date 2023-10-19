@@ -1,3 +1,4 @@
+using AleVerDes.LeoEcsLiteZoo;
 using Leopotam.EcsLite;
 using UnityEngine;
 using UtilsAssembly;
@@ -17,24 +18,16 @@ namespace MovementAssembly
     /// </summary>
     internal class InputActionsToCommands : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<InputActions, PowerOfForce> _entities;
         EcsPool<InputActions> _playerActions;
         EcsPool<PowerOfForce> _powersOfForce;
         EcsPool<ForceCommand> _forces;
         EcsPool<Stamina> _stamina;
         EcsPool<Momentum> _momentums;
+        EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-
-        }
         public void Run(IEcsSystems systems)
         {
-            EcsWorld world = systems.GetWorld();
-
-            if (_entities is null) _entities = world.Filter<InputActions>().Inc<PowerOfForce>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 InputActions playerActions = _playerActions.Get(entity);
@@ -49,7 +42,7 @@ namespace MovementAssembly
                     if (stamina.CurrentValue <= 0) continue;
                 }
 
-                int e = world.NewEntity();
+                int e = _world.NewEntity();
                 ref ForceCommand force = ref _forces.Add(e);
                 force.PowerOfForce = powerOfForce;
 
@@ -59,7 +52,7 @@ namespace MovementAssembly
                 }
 
                 force.PowerOfForce.Value *= Time.fixedDeltaTime * 25;
-                force.TargetOfForce.Value = world.PackEntity(entity);
+                force.TargetOfForce.Value = _world.PackEntity(entity);
                 force.Direction2D.Value = TapPositionToDirection(dir);
             }
         }

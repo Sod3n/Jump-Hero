@@ -15,20 +15,14 @@ namespace GenerationAssembly
 
     internal class CreateGenerationRectangle : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<GenerationSettings, TransformRef> _entities;
         EcsPool<GenerationSettings> _generationSettings;
         EcsPool<GenerationRectangle> _generationRectangles;
         EcsPool<TransformRef> _transformRefs;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<GenerationSettings>().Inc<TransformRef>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
 

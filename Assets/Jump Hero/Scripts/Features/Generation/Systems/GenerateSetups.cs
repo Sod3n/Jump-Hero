@@ -18,23 +18,16 @@ namespace GenerationAssembly
 #endif
     internal class GenerateSetups : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<GenerateSetupMarker, Owner, Position2D> _entities;
         EcsPool<GenerationSettings> _genSettings;
         EcsPool<NoiseSettings> _noiseSettings;
         EcsPool<Owner> _owners;
         EcsPool<Position2D> _positions2D;
         EcsPool<GameObjectRef> _gameObjectRefs;
         EcsWorld _world;
-
-        public void Init(IEcsSystems systems)
-        {
-
-        }
+=
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<GenerateSetupMarker>().Inc<Owner>().Inc<Position2D>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 var owner = _owners.Get(entity);

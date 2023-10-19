@@ -15,19 +15,13 @@ namespace MovementAssembly
 
     internal class TrackHeight : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<MaxReachedHeight, TransformRef> _entities;
         EcsPool<MaxReachedHeight> _maxReachedHeights;
         EcsPool<TransformRef> _transformRefs;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<MaxReachedHeight>().Inc<TransformRef>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 var tranform = _transformRefs.Get(entity).Value;

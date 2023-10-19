@@ -1,3 +1,4 @@
+using AleVerDes.LeoEcsLiteZoo;
 using Leopotam.EcsLite;
 using System.ComponentModel;
 using UnityEngine;
@@ -12,9 +13,9 @@ namespace GenerationAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
 
-    internal class SetNoiseSeed : IEcsRunSystem
+    internal class SetNoiseSeed : IEcsInitSystem, IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<NoiseSettings> _entities;
         EcsPool<NoiseSettings> _noiseSettings;
         EcsWorld _world;
 
@@ -26,15 +27,10 @@ namespace GenerationAssembly
         }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<NoiseSettings>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 ref var noiseSettings = ref _noiseSettings.Get(entity);
                 noiseSettings.Seed = _noiseSeed;
-
-
             }
         }
     }

@@ -20,19 +20,16 @@ namespace ReviveCausesAssembly
 
     internal class AddReviveBlessingOnTrigger : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<OnTriggerEnter2DEvent> _entities;
         EcsPool<OnTriggerEnter2DEvent> _triggerEnterEvents;
         EcsPool<ReviveBlessing> _reviveBlessings;
         EcsPool<ReviveStatueMarker> _reviveStatueMarkers;
         EcsPool<TransformRef> _transformRefs;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<OnTriggerEnter2DEvent>().End();
+            
             if (_entities is null) return;
 
             foreach (int entity in _entities)

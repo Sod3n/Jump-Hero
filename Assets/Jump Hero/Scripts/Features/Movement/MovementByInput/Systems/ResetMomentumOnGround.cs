@@ -1,3 +1,4 @@
+using AleVerDes.LeoEcsLiteZoo;
 using Leopotam.EcsLite;
 using MovementByPhysicsAssembly;
 using System.ComponentModel;
@@ -17,19 +18,13 @@ namespace MovementAssembly
 
     internal class ResetMomentumOnGround : IEcsRunSystem
     {
-        EcsFilter _entities;
+        EcsQuery<OnGround, Momentum> _entities;
         EcsPool<Momentum> _momentums;
         EcsPool<OnGround> _onGrounds;
         EcsWorld _world;
 
-        public void Init(IEcsSystems systems)
-        {
-        }
         public void Run(IEcsSystems systems)
         {
-            if (_entities is null) _entities = _world.Filter<OnGround>().Inc<Momentum>().End();
-            if (_entities is null) return;
-
             foreach (int entity in _entities)
             {
                 ref var momentum = ref _momentums.Get(entity);
