@@ -24,10 +24,11 @@ namespace GenerationAssembly
 
         public void Init(IEcsSystems systems)
         {
-            _noiseSettingsEntity = _world.Filter<NoiseSettings>().Inc<SubElementsNoiseSettingsMarker>().End().GetFirstEntity<NoiseSettings>();
+            
         }
         public void Run(IEcsSystems systems)
         {
+            _noiseSettingsEntity = _world.Filter<NoiseSettings>().Inc<SubElementsNoiseSettingsMarker>().End().GetFirstEntity<NoiseSettings>();
             foreach (int entity in _entities)
             {
                 ref var chanceOfActivation = ref _chanceOfActivationSubElement.Get(entity);

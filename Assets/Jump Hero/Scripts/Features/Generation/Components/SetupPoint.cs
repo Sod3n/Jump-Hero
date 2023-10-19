@@ -1,7 +1,8 @@
+using Leopotam.EcsLite;
 using System;
 using UnityEngine;
 
-namespace AnimationsAssembly
+namespace GenerationAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
@@ -11,8 +12,9 @@ namespace AnimationsAssembly
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
     [Serializable]
-    public struct AnimationRef
+    public struct SetupPoint
     {
-        public Animation Value;
+        public Vector2 Position;
+        public EcsPackedEntity EntityWithSettings;
     }
 }

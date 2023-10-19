@@ -18,28 +18,28 @@ namespace GenerationAssembly
 #endif
     internal class GenerateSetups : IEcsRunSystem
     {
-        EcsQuery<GenerateSetupMarker, Owner, Position2D> _entities;
+        EcsQuery<SetupPoint> _entities;
+        EcsPool<SetupPoint> _setupPoints;
+        EcsPool<GameObjectRef> _gameObjectRefs;
         EcsPool<GenerationSettings> _genSettings;
         EcsPool<NoiseSettings> _noiseSettings;
-        EcsPool<Owner> _owners;
-        EcsPool<Position2D> _positions2D;
-        EcsPool<GameObjectRef> _gameObjectRefs;
         EcsWorld _world;
 
         public void Run(IEcsSystems systems)
         {
             foreach (int entity in _entities)
             {
-                var owner = _owners.Get(entity);
-                if(!owner.Value.Unpack(_world, out int ownerEntity)) continue;
-                ref var genSettings = ref _genSettings.Get(ownerEntity);
-                var position2D = _positions2D.Get(entity).Value;
+                var setupPoint = _setupPoints.Get(entity);
 
-                var noiseSettings = _noiseSettings.Get(ownerEntity);
-                genSettings.Vector2ToSetupEntity ??= new System.Collections.Generic.Dictionary<Vector2, int>();
+                int settingsEntity;
+                if (!setupPoint.EntityWithSettings.Unpack(_world, out settingsEntity)) continue;
 
-                position2D = GenerationMath.GetSetupPoint(position2D, genSettings.SetupSize);
-                if (genSettings.Vector2ToSetupEntity.ContainsKey(position2D)) continue;
+                if(!_genSettings.Has(settingsEntity) || !_noiseSettings.Has(settingsEntity)) continue;
+
+                ref var genSettings = ref _genSettings.Get(settingsEntity);
+                var noiseSettings = _noiseSettings.Get(settingsEntity);
+
+                if (genSettings.Vector2ToSetupEntity.ContainsKey(setupPoint.Position)) continue;
 
                 int sId = 0;
 
@@ -48,9 +48,9 @@ namespace GenerationAssembly
                     Id = sId,
                 };
 
-                genSettings.Vector2ToSetupEntity.Add(position2D, setupEnt);
+                genSettings.Vector2ToSetupEntity.Add(setupPoint.Position, setupEnt);
 
-                GameObject setup = Object.Instantiate(genSettings.Prefabs[sId], position2D, new Quaternion());
+                GameObject setup = Object.Instantiate(genSettings.Prefabs[sId], setupPoint.Position, new Quaternion());
                 _gameObjectRefs.Add(entity) = new GameObjectRef
                 {
                     Value = setup,

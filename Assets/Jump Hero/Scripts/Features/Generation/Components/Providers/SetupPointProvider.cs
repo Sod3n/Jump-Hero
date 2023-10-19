@@ -1,6 +1,6 @@
 using AleVerDes.LeoEcsLiteZoo;
 
-namespace AnimationsAssembly
+namespace GenerationAssembly
 {
 #if ENABLE_IL2CPP
         using Unity.IL2CPP.CompilerServices;
@@ -9,7 +9,7 @@ namespace AnimationsAssembly
         [Il2CppSetOption(Option.ArrayBoundsChecks, false)]
         [Il2CppSetOption(Option.DivideByZeroChecks, false)]
 #endif
-    public class IdleClipProvider : ConvertComponent<IdleClip>
+    public class SetupPointProvider : ConvertComponent<SetupPoint>
     {
     }
 }

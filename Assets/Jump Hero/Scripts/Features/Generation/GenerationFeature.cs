@@ -18,11 +18,13 @@ namespace GenerationAssembly
             systems
                 .Add(new CreateGenerationRectangle())
                 .Add(new PlaceGenerateSetupMarkers())
+                .Add(new GenerateSetupPoints())
                 .Add(new GenerateSetups())
                 .Add(new SetNoiseSeed())
                 .Add(new ActivateSubElements())
                 .DelHere<ChanceOfActivationSubElement>()   
                 .DelHereEntityWith<GenerateSetupMarker>()
+                .DelHereEntityWith<SetupPoint>()
                 ;
         }
     }
