@@ -13,6 +13,7 @@ using MovementByPhysicsAssembly;
 using MovementByAIAssembly;
 using DeathProcessAssembly;
 using ReviveCausesAssembly;
+using CoinsAssembly;
 
 internal class MainModule : IEcsModuleInstaller
 {
@@ -30,6 +31,7 @@ internal class MainModule : IEcsModuleInstaller
             .Add(new DeathCausesFeature())
             .Add(new DeathProcessFeature())
             .Add(new ReviveCausesFeature())
+            .Add(new CoinsFeature())
             ;
 
         return module;
