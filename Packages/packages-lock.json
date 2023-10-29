@@ -1,11 +1,10 @@
 {
   "dependencies": {
     "com.aleverdes.leoecslite-zoo": {
-      "version": "https://github.com/Sod3n/leoecslite-zoo.git",
+      "version": "file:I:/GitHub/leoecslite-zoo",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "6940e896c352cdf5805815465ec3cf687b3a3583"
+      "source": "local",
+      "dependencies": {}
     },
     "com.leopotam.ecslite": {
       "version": "https://github.com/Leopotam/ecslite.git",

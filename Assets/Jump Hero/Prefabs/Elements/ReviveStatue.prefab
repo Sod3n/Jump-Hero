@@ -129,7 +129,7 @@ MonoBehaviour:
   _convertTime: 0
   _convertMode: 0
   _collectMode: 0
-  _destroyEntityWithGameObject: 0
+  _destroyEntityWithGameObject: 1
 --- !u!114 &2946796861800399238
 MonoBehaviour:
   m_ObjectHideFlags: 0

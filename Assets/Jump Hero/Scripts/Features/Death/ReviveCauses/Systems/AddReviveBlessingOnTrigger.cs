@@ -38,6 +38,7 @@ namespace ReviveCausesAssembly
 
                 int statueEntity;
                 if (!triggerEnterEvent.collider2D.gameObject.TryGetEntity(out statueEntity)) continue;
+                Debug.Log(triggerEnterEvent.collider2D.gameObject);
                 if (!_reviveStatueMarkers.Has(statueEntity)) continue;
 
                 if (!_transformRefs.Has(statueEntity)) continue;
