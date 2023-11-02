@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.aleverdes.leoecslite-zoo": "file:I:/GitHub/leoecslite-zoo",
+    "com.aleverdes.leoecslite-zoo": "file:C:/github/leoecslite-zoo",
     "com.leopotam.ecslite": "https://github.com/Leopotam/ecslite.git",
     "com.leopotam.ecslite.extendedsystems": "https://github.com/Leopotam/ecslite-extendedsystems.git",
     "com.leopotam.ecslite.unityeditor": "https://github.com/Leopotam/ecslite-unityeditor.git",

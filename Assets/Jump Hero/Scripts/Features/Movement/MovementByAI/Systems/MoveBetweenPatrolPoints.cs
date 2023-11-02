@@ -27,9 +27,9 @@ namespace MovementByAIAssembly
             {
                 ref var patrolPoints = ref _patrolPoints.Get(entity);
                 var movementSpeed = _movementSpeeds.Get(entity).Value;
-
+                Debug.Log(entity);
                 var body = _rigidbody2DRefs.Get(entity).Value;
-
+                Debug.Log(_rigidbody2DRefs.Get(entity).Value);
                 var nextPointPos = patrolPoints.Points[patrolPoints.NextPoint].position;
                 var heading = nextPointPos - body.transform.position;
                 var moveVec = heading.normalized * movementSpeed * Time.fixedDeltaTime;

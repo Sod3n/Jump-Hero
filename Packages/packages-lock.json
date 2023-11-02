@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.aleverdes.leoecslite-zoo": {
-      "version": "file:I:/GitHub/leoecslite-zoo",
+      "version": "file:C:/github/leoecslite-zoo",
       "depth": 0,
       "source": "local",
       "dependencies": {}

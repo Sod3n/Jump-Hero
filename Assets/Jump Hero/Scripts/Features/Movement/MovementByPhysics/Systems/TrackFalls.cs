@@ -32,7 +32,7 @@ namespace MovementByPhysicsAssembly
                 {
                     if (!_groundMarkers.Has(groundEntity)) continue;
                 }
-                Deb
+                
                 if (onCollisionExitEvent.senderGameObject.TryGetEntity(out var senderEntity))
                 {
                     if (!_onGrounds.Has(senderEntity)) continue;
